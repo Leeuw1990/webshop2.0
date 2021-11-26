@@ -7,6 +7,7 @@ class Router
     "GET",
     "POST"
   );
+  
 
   function __construct(IRequest $request)
   {
@@ -16,6 +17,7 @@ class Router
   function __call($name, $args)
   {
     list($route, $method) = $args;
+    var_dump($args);
 
     if(!in_array(strtoupper($name), $this->supportedHttpMethods))
     {
@@ -23,6 +25,8 @@ class Router
     }
 
     $this->{strtolower($name)}[$this->formatRoute($route)] = $method;
+    var_dump($method);
+
   }
 
   /**

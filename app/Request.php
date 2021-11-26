@@ -1,6 +1,8 @@
 <?php
 include_once 'IRequest.php';
 
+// Dit bevat een request class wat objecten initialiseert wat informatie bevat over de http request.
+
 class Request implements IRequest
 {
   function __construct()
@@ -8,17 +10,23 @@ class Request implements IRequest
     $this->bootstrapSelf();
   }
 
+// Een functie die automatisch de waarde ophaald uit de browser.
   private function bootstrapSelf()
   {
     foreach($_SERVER as $key => $value)
     {
       $this->{$this->toCamelCase($key)} = $value;
+    //   var_dump("bootstrapself!!!!". $value. "</br>");
     }
   }
 
+
+  // zet een normale string om naar camelCase.
   private function toCamelCase($string)
   {
     $result = strtolower($string);
+    
+
         
     preg_match_all('/_[a-z]/', $result, $matches);
 
@@ -29,6 +37,7 @@ class Request implements IRequest
     }
 
     return $result;
+    // var_dump("toCalemlCase!".$result);
   }
 
   public function getBody()
@@ -49,6 +58,7 @@ class Request implements IRequest
       }
 
       return $body;
+    //   var_dump("getBody: ". $body);
     }
   }
 }
