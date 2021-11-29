@@ -3,4 +3,4 @@
 ?>
 
 
-<h1>Contact</h1>
+<h1>COntact</h1>
