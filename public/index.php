@@ -1,9 +1,19 @@
 <?php
 
-require '../view/BrowserRouter.php';
-require 'Routes.php';
+require 'Autoloader.php';
 
-spl_autoload_register();
+// use Core\Application;
 
-$page = BrowserRouter::getPage();
-echo $page->render();
+AutoLoader::load();
+
+$app = new app\core\Application();
+// $router = new app\core\Router();
+
+$app->router->get('/', 'home');
+
+$app->router->get('/contact', 'contact');
+
+
+
+$app->run();
+
