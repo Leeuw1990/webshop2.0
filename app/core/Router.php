@@ -28,15 +28,11 @@ class Router
     {
         $path = $this->request->getPath();
         // Krijgt terug welk pad er in de browser staat.
-        var_dump('Path: '.$path);
-        var_dump($this->routes);
-        // $routes = Routes::routesArray();
-        
-    
+        $routes = new Routes();
+        $this->routes = $routes->routesArray();
         //Roept de path method aan.
         $method = $this->request->getMethod();
         // Krijgt terug welke method er wordt gebruikt. GET, POST, PUT, HEAD in kleine letters.
-        var_dump($method);
         $callback = $this->routes[$method][$path] ?? false;
         
         if($callback === false) {
@@ -51,12 +47,15 @@ class Router
             // als Path wel overeenkomt met routes.
             // in de variabele zit de uri request in. Die wordt doorgegeven aan de renderview Method
         }
+        if(is_array($callback)) {
+            $callback[0] = new $callback[0]();
+        }
         return call_user_func($callback);
     }
 
     public function renderView($view)
     {
-        $layoutContent = $this->layoutContent();
+//        $layoutContent = $this->layoutContent();
         // $viewContent = $this->renderOnlyView($view);
         include_once Application::$ROOT_DIR."/view/$view.php";
         // return str_replace('{{content}}',$viewContent, $layoutContent);
@@ -74,17 +73,17 @@ class Router
 
     // }
 
-    protected function layoutContent()
-    {
-        ob_start();
-        include_once Application::$ROOT_DIR."/view/layouts/Main.php";
-        return ob_get_clean();
-    }
-
-    protected function renderOnlyView($view)
-    {
-        ob_start();
-        include_once Application::$ROOT_DIR."/view/$view.php";
-        return ob_get_clean();
-    }
+//    protected function layoutContent()
+//    {
+//        ob_start();
+//        include_once Application::$ROOT_DIR."/view/layouts/Main.php";
+//        return ob_get_clean();
+//    }
+//
+//    protected function renderOnlyView($view)
+//    {
+//        ob_start();
+//        include_once Application::$ROOT_DIR."/view/$view.php";
+//        return ob_get_clean();
+//    }
 }
