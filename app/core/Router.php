@@ -19,19 +19,26 @@ class Router
         $this->routes['get'][$path] = $callback;
     }
 
+    public function post($path, $callback)
+    {
+        $this->routes['post'][$path] = $callback;
+    }
+
     public function resolve()
     {
         $path = $this->request->getPath();
         // Krijgt terug welk pad er in de browser staat.
         var_dump('Path: '.$path);
         var_dump($this->routes);
+        // $routes = Routes::routesArray();
+        
     
         //Roept de path method aan.
         $method = $this->request->getMethod();
         // Krijgt terug welke method er wordt gebruikt. GET, POST, PUT, HEAD in kleine letters.
         var_dump($method);
         $callback = $this->routes[$method][$path] ?? false;
-        var_dump($callback);
+        
         if($callback === false) {
         // als Path niet overeenkomt met routes.
             $this->response->setStatusCode(404);
@@ -60,6 +67,12 @@ class Router
         // Vervolgen roep ik die functie + contructor aan. 
         // Het is een static functie vandaar Application::$ROOT_DIR
     }
+
+    // public function renderContent()
+    // {
+    //     $layoutContent = $this->layoutContent();
+
+    // }
 
     protected function layoutContent()
     {
