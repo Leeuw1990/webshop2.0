@@ -1,14 +1,14 @@
 <?php
-
 namespace app\core;
 
-class Routes
-{
+// var_dump('Dir name???'.dirname(__dir__, 2));
+// $app->run();
+// $app->router->get('/', 'home');
+// $app->router->get('/contact', 'contact');
+// $app = new Application(dirname(__dir__, 2));
 
-    public function dump()
-    {
-        var_dump(dirname(__dir__));
-    }
+$router->get('/', 'home');
+$router->get('/contact', 'contact');
 
 
-}
+// $app->run();

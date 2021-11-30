@@ -3,4 +3,5 @@
 ?>
 
 
-<h1>COntact</h1>
+<h1>Contact</h1>
+<h1>{{content}}</h1>

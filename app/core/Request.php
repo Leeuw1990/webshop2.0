@@ -4,7 +4,6 @@ namespace app\core;
 
 class Request
 {
-
     public function getPath()
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
@@ -15,15 +14,12 @@ class Request
             return $path;
         }
         return substr($path, 0, $position);
-        var_dump($position);
-
     }
 
     public function getMethod()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
-        //Zorgt er voor dat de uri wordt terug gegeven in lowercase.
-
+        //$_server[REQUEST_METHOD] = Controlleert of het een get, post, put of head method is/
+        //Dat wordt gereturned in kleine letters.
     }
-
 }
