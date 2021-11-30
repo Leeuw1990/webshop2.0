@@ -5,11 +5,13 @@ namespace app\core;
 class Router
 {
     public $request;
+    public $response;
     protected $routes = [];
 
-    public function __construct(Request $request)
+    public function __construct(Request $request, Response $response)
     {
         $this->request = $request;
+        $this->response = $response;
     }
 
     public function get($path, $callback)
@@ -32,7 +34,7 @@ class Router
         var_dump($callback);
         if($callback === false) {
         // als Path niet overeenkomt met routes.
-            Application::$app->response->setStatusCode(404);
+            $this->response->setStatusCode(404);
             echo "Not found";
             exit;
         }
