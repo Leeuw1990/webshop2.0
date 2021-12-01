@@ -9,7 +9,6 @@
 <body>
 
 <h1>Contact</h1>
-<h1>{{content}}</h1>
 <form>
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname"><br>

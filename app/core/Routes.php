@@ -1,6 +1,8 @@
 <?php
 namespace app\core;
 use app\controller\SiteController;
+use app\controller\AuthController;
+
 
 class Routes
 {
@@ -9,9 +11,15 @@ class Routes
        return array (
            'get' => array
            (
-               "/" =>  [SiteController::class, 'home'],
-               "/contact" => [SiteController::class ,'contact']
+               '/' =>  [SiteController::class, 'home'],
+               '/contact '=> [SiteController::class ,'contact'],
+               '/login' => [AuthController::class, 'login'],
+               '/register' => [AuthController::class, 'register']
            ),
+           'post' => array(
+               '/login' => [AuthController::class, 'login'],
+               '/register' => [AuthController::class, 'register']
+           )
         );
     }
 }

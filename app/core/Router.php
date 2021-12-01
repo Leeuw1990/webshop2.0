@@ -31,7 +31,7 @@ class Router
         $routes = new Routes();
         $this->routes = $routes->routesArray();
         //Roept de path method aan.
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
         // Krijgt terug welke method er wordt gebruikt. GET, POST, PUT, HEAD in kleine letters.
         $callback = $this->routes[$method][$path] ?? false;
         
@@ -50,7 +50,7 @@ class Router
         if(is_array($callback)) {
             $callback[0] = new $callback[0]();
         }
-        return call_user_func($callback);
+        return call_user_func($callback, $this->request);
     }
 
     public function renderView($view)
