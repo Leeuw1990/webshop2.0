@@ -15,6 +15,7 @@
     <input type="text" id="login" name="password">
     <input type="submit" value="Submit">
 </form>
+<a href='/'>Home</a>
 
 </body>
 </html>

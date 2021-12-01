@@ -16,6 +16,7 @@
   <input type="text" id="lname" name="lname">
   <input type="submit" value="Submit">
 </form>
+<a href='/'>Home</a>
 
 </body>
 </html>

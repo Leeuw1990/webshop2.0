@@ -11,5 +11,7 @@ class Controller
     {
         return Application::$app->router->renderView($view);
     }
+    // RenderView hebben alle controllers nodig. Om dubbele code te voorkomen. Wordt iedere controller geimplementeerd
+    // met de controller class.
 
 }

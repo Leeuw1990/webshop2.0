@@ -12,15 +12,17 @@ class Routes
            'get' => array
            (
                '/' =>  [SiteController::class, 'home'],
-               '/contact '=> [SiteController::class ,'contact'],
+               '/contact'=> [SiteController::class ,'contact'],
                '/login' => [AuthController::class, 'login'],
-               '/register' => [AuthController::class, 'register']
+               '/register' => [AuthController::class, 'register'],
+               '/shop' => [SiteController::class, 'shop']
            ),
            'post' => array(
                '/login' => [AuthController::class, 'login'],
                '/register' => [AuthController::class, 'register']
            )
         );
+       // Multidemensional array: Met alle get en post requests.
     }
 }
 

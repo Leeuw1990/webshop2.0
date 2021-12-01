@@ -23,8 +23,8 @@
     <label>Password:</label>
     <input type="text" id="register" name="confirmPassword">
     <input type="submit" value="Submit">
-
 </form>
+<a href='/'>Home</a>
 
 </body>
 </html>
