@@ -10,15 +10,11 @@ class Routes
            'get' => array
            (
                "/" =>  [SiteController::class, 'home'],
-               "/contact" => "contact"
+               "/contact" => [SiteController::class ,'contact']
            ),
         );
     }
 }
 
-//$app->router->get('/', [SiteController::class, 'home']);
-//
-//$app->router->get('/contact', [SiteController::class, 'contact']);
-//
-//$app->router->post('/contact', [SiteController::class, 'handleContact']);
+
 
