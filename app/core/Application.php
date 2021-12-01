@@ -9,6 +9,7 @@ class Application
     public $request;
     public $response;
     public static $app;
+    public $database;
     
     public function __construct($rootPath)
     {
@@ -17,6 +18,7 @@ class Application
         $this->request = new Request();
         $this->response = new Response();
         $this->router = new Router($this->request, $this->response);
+        $this->database = new Database();
     }
 
     public function run()

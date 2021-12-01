@@ -6,7 +6,6 @@ use app\core\Model;
 
 class RegisterModel extends Model
 {
-
     public $firstName;
     public $lastName;
     public $username;
@@ -28,7 +27,6 @@ class RegisterModel extends Model
             'email' => [self::RULE_REQUIRED],
             'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8], [self::RULE_MATCH, 'max' => 24]],
             'conformPassword' => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']],
-
         ];
     }
 
