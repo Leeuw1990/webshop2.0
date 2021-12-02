@@ -39,6 +39,7 @@ class Router
         // als Path niet overeenkomt met routes.
             $this->response->setStatusCode(404);
             echo "Not found";
+            // returnen??????
             exit;
         }
         // callback momenteel als je url/nogwat krijg je een error. 
@@ -56,9 +57,9 @@ class Router
     public function renderView($view)
     {
 //        $layoutContent = $this->layoutContent();
-        // $viewContent = $this->renderOnlyView($view);
+//        $viewContent = $this->renderOnlyView($view);
         include_once Application::$ROOT_DIR."/view/$view.php";
-        // return str_replace('{{content}}',$viewContent, $layoutContent);
+//         return str_replace('{{content}}',$viewContent, $layoutContent);
         // Parameter view zit REQUEST_URI in. Die heb ik nodig om het juiste 
         // bestand te kunnen openen en te renderen.
         // In index wordt gekeken wat de root directory is van het project.
@@ -76,7 +77,7 @@ class Router
 //    protected function layoutContent()
 //    {
 //        ob_start();
-//        include_once Application::$ROOT_DIR."/view/layouts/Main.php";
+//        include_once Application::$ROOT_DIR."/view/layouts/main.php";
 //        return ob_get_clean();
 //    }
 //

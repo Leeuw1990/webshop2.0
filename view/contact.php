@@ -7,7 +7,7 @@
 <title>Page Title</title>
 </head>
 <body>
-
+{{content}}
 <h1>Contact</h1>
 <form>
   <label for="fname">First name:</label><br>
