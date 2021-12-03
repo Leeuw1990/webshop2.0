@@ -5,6 +5,8 @@ namespace app\controller;
 use app\core\Request;
 use app\model\ProductModel;
 
+
+
 class ProductController extends Controller
 {
     public function shop()

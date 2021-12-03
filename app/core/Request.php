@@ -2,6 +2,10 @@
 
 namespace app\core;
 
+// Request class: Is een classe in Object Oriented Programming wat HTTP reqeusts afhandeld.
+// Het is verantwoordelijke voor het uitgaande en binnenkomende verkeer.
+// https://codeigniter.com/user_guide/incoming/request.html
+
 class Request
 {
     public function getPath()
