@@ -19,12 +19,6 @@ class SiteController extends Controller
         return $this->render('home');
     }
 
-    public function shop()
-    {
-        return $this->render('shop');
-    }
-
-
     public function handleContact(Request $request)
     {
 

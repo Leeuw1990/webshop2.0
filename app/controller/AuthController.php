@@ -11,19 +11,19 @@ class AuthController extends Controller
         return $this->render('login');
     }
 
-    public function register(Request $request)
-    {
-        $registerModel = new RegisterModel();
-        if($request->isPost()) {
-            $registerModel->loadData($request->getBody());
-
-            if($registerModel->validate() && $registerModel->register()) {
-                return 'Succes';
-            }
-            return $this->render('register', [
-                'model' => $registerModel
-            ]);
-        }
-        return $this->render('register');
-    }
+//    public function register(Request $request)
+//    {
+//        $registerModel = new RegisterModel();
+//        if($request->isPost()) {
+//            $registerModel->loadData($request->getBody());
+//
+//            if($registerModel->validate() && $registerModel->register()) {
+//                return 'Succes';
+//            }
+//            return $this->render('register', [
+//                'model' => $registerModel
+//            ]);
+//        }
+//        return $this->render('register');
+//    }
 }

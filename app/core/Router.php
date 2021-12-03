@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use Mustache_Engine;
+
 class Router
 {
     public $request;
@@ -32,6 +34,8 @@ class Router
         $this->routes = $routes->routesArray();
         //Roept de path method aan.
         $method = $this->request->method();
+
+
         // Krijgt terug welke method er wordt gebruikt. GET, POST, PUT, HEAD in kleine letters.
         $callback = $this->routes[$method][$path] ?? false;
         
@@ -54,10 +58,12 @@ class Router
         return call_user_func($callback, $this->request);
     }
 
-    public function renderView($view)
+    public function renderView( $view)
     {
 //        $layoutContent = $this->layoutContent();
 //        $viewContent = $this->renderOnlyView($view);
+        $mustache = new Mustache_Engine;
+        echo $mustache->render(" ");
         include_once Application::$ROOT_DIR."/view/$view.php";
 //         return str_replace('{{content}}',$viewContent, $layoutContent);
         // Parameter view zit REQUEST_URI in. Die heb ik nodig om het juiste 
@@ -67,24 +73,4 @@ class Router
         // Vervolgen roep ik die functie + contructor aan. 
         // Het is een static functie vandaar Application::$ROOT_DIR
     }
-
-    // public function renderContent()
-    // {
-    //     $layoutContent = $this->layoutContent();
-
-    // }
-
-//    protected function layoutContent()
-//    {
-//        ob_start();
-//        include_once Application::$ROOT_DIR."/view/layouts/main.php";
-//        return ob_get_clean();
-//    }
-//
-//    protected function renderOnlyView($view)
-//    {
-//        ob_start();
-//        include_once Application::$ROOT_DIR."/view/$view.php";
-//        return ob_get_clean();
-//    }
 }

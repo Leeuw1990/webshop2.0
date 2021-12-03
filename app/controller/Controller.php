@@ -4,7 +4,6 @@ namespace app\controller;
 
 use app\core\Application;
 
-
 class Controller
 {
     public function render($view)
@@ -13,5 +12,4 @@ class Controller
     }
     // RenderView hebben alle controllers nodig. Om dubbele code te voorkomen. Wordt iedere controller geimplementeerd
     // met de controller class.
-
 }
