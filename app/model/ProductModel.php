@@ -19,11 +19,7 @@ class ProductModel extends Model
     {
         $connection = new Database();
         $sql = "SELECT * FROM products";
-        $result = $connection->getConnection()->query($sql);
-        foreach ($result as $key => $value) {
-            echo $value['nameProduct'] ." ".$value['price']." ". $value['brand'] ." ".$value['describtion']." ". $value['stock']."</br>";
-        }
-//        return $result;
+        return $connection->getConnection()->query($sql);
     }
 
     public function postProduct()

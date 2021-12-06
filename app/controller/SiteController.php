@@ -6,6 +6,8 @@ use app\controller\Controller;
 use app\core\Request;
 
 // $this: Het is een referentie naar het huidige object.
+// WAT IS EEN CONTROLLER?:
+//
 
 class SiteController extends Controller
 {
@@ -23,7 +25,4 @@ class SiteController extends Controller
     {
 
     }
-
-
-
 }

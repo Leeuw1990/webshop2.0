@@ -14,8 +14,8 @@ class ProductController extends Controller
 //         uit model alle producten halen
 //         meegeven aan render functie
         $getProduct = new ProductModel();
-        return $this->render('shop');
-
+        $productData = $getProduct->getProduct();
+        return $this->render('shop',$productData);
     }
 
 
