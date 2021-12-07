@@ -24,17 +24,26 @@ class ProductModel
         return $connection->getConnection()->query($sql);
     }
 
-    public function deleteProduct($id)
+    public function getProductById($id)
     {
-        var_dump("Model: ".$id);
         $connection = new Database();
-        $sql = "DELETE FROM products WHERE id=$id";
-        var_dump("SQL: ".$sql);
+        $sql = "SELECT * FROM products WHERE id=$id";
         return $connection->getConnection()->query($sql);
     }
 
-    public function updateProduct()
+    public function deleteProduct($id)
     {
+        $connection = new Database();
+        $sql = "DELETE FROM products WHERE id=$id";
+        return $connection->getConnection()->query($sql);
+    }
+
+    public function updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $id)
+    {
+        $connection = new Database();
+        $sql = "UPDATE products SET nameProduct='$nameProduct', brand='$brand', specification='$specification',
+                                    fitting='$fitting', price='$price', description='$description', stock='$stock' WHERE id=$id";
+        return $connection->getConnection()->query($sql);
 
     }
 

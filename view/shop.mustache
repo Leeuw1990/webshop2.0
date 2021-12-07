@@ -1,9 +1,6 @@
 
 
 <h1>Shop</h1>
-<lu>
-    <li></li>
-</lu>
 <a href='/'>Home</a>
 <form method="POST" class="createproduct" action="/createproduct">
         <input class="add" type="text" placeholder="name product" name="nameProduct" required id="test">
@@ -27,7 +24,7 @@
 <td>{{fitting}}</td>
 <td>{{specification}}</td>
 <td>{{stock}}</td>
-<td><a href="http://webshop2.0.xpdev/shopupdate?id={{id}}">UPDATE</td>
+<td><a href="http://webshop2.0.xpdev/update?id={{id}}">UPDATE</td>
 <td><a href="http://webshop2.0.xpdev/shopdelete?id={{id}}">DELETE</td>
 <tr>
 {{/data}}

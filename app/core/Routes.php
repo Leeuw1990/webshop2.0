@@ -17,12 +17,13 @@ class Routes
                '/register' => [AuthController::class, 'register'],
                '/shop' => [ProductController::class, 'shop'],
                '/shopdelete' => [ProductController::class, 'deleteShopProduct'],
-               '/shopupdate' => [ProductController::class, 'deleteShopProduct']
+               '/update' => [ProductController::class, 'update']
            ),
            'post' => array(
                '/login' => [AuthController::class, 'login'],
                '/register' => [AuthController::class, 'register'],
-               '/createproduct' => [ProductController::class, 'createShopProduct']
+               '/createproduct' => [ProductController::class, 'createShopProduct'],
+               '/updateproduct' => [ProductController::class, 'updateShopProduct']
            )
         );
     }

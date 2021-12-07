@@ -1,0 +1,18 @@
+
+
+
+<h1>Update form</h1>
+<form method="POST" class="updateproduct" action="/updateproduct">
+{{#data}}
+        <input class="add" type="text" value="{{nameProduct}}" name="nameProduct" required id="test">
+        <input class="add" type="text" value="{{brand}}" name="brand" required id="test">
+        <input class="add" type="text" value="{{specification}}" name="specification" required id="test">
+        <input class="add" type="text" value="{{fitting}}" name="fitting" required id="test">
+        <input class="add" type="text" value="{{price}}" name="price" required id="test">
+        <input class="add" type="text" value="{{description}}" name="description" required id="test">
+        <input class="add" type="text" value="{{stock}}" name="stock" required id="test">
+        <input class="add" type="hidden" value="{{id}}" name="id" required id="test">
+        <button class="addButton" type="submit" value="Submit">Submit</button>
+{{/data}}
+</form>
+
