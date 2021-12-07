@@ -13,6 +13,7 @@ class Routes
            (
                '/' =>  [SiteController::class, 'home'],
                '/contact'=> [SiteController::class ,'contact'],
+               '/admin'=> [SiteController::class ,'admin'],
                '/login' => [AuthController::class, 'login'],
                '/register' => [AuthController::class, 'register'],
                '/shop' => [ProductController::class, 'shop'],

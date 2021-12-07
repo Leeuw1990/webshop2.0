@@ -15,15 +15,10 @@ class Database
 
     public function __construct() {
         $this->connection = new mysqli($this->host, $this->user, $this->password, $this->name);
-
-        if(!$this->connection) {
-            echo "Database connection Error ". mysqli_connect_error($this->connection);
-        } else {
-            echo "Connected!";
-        }
     }
 
-    public function getConnection() {
+    public function getConnection(): mysqli
+    {
         return $this->connection;
     }
 

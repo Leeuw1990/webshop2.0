@@ -1,10 +1,12 @@
 <?php
 
 namespace app\controller;
+use app\core\Database;
 use app\model\ProductModel;
 
 class ProductController extends Controller
 {
+
     public function shop()
     {
         $getProduct = new ProductModel();
