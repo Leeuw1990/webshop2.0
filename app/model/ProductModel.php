@@ -5,15 +5,17 @@ namespace app\model;
 use app\core\Database;
 use app\core\Model;
 
-class ProductModel extends Model
+class ProductModel
 {
     public $id;
-    public $name;
+    public $nameProduct;
+    public $brand;
     public $specification;
     public $fitting;
-    public $describtion;
+    public $description;
     public $price;
     public $stock;
+    public $test;
 
     public function getProduct()
     {
@@ -22,9 +24,13 @@ class ProductModel extends Model
         return $connection->getConnection()->query($sql);
     }
 
-    public function postProduct()
+    public function deleteProduct($id)
     {
-
+        var_dump("Model: ".$id);
+        $connection = new Database();
+        $sql = "DELETE FROM products WHERE id=$id";
+        var_dump("SQL: ".$sql);
+        return $connection->getConnection()->query($sql);
     }
 
     public function updateProduct()
@@ -32,14 +38,11 @@ class ProductModel extends Model
 
     }
 
-    public function deleteProduct()
+    public function createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock)
     {
-
-    }
-
-
-    public function rules(): array
-    {
-        return 'nothing';
+        $connection = new Database();
+        $sql = "INSERT INTO products (nameProduct, brand, specification, fitting, price, description, stock) 
+        VALUES ('$nameProduct', '$brand', '$specification', '$fitting', '$price', '$description', '$stock')";
+        return $connection->getConnection()->query($sql);
     }
 }

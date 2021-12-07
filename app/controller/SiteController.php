@@ -13,16 +13,11 @@ class SiteController extends Controller
 {
     public function contact()
     {
-        return $this->render('contact');
+        $this->render('contact');
     }
 
     public function home()
     {
-        return $this->render('home');
-    }
-
-    public function handleContact(Request $request)
-    {
-
+        $this->render('home');
     }
 }

@@ -1,32 +1,47 @@
 <?php
 
 namespace app\controller;
-
-use app\core\Request;
 use app\model\ProductModel;
-
-
 
 class ProductController extends Controller
 {
     public function shop()
     {
-//         uit model alle producten halen
-//         meegeven aan render functie
         $getProduct = new ProductModel();
         $productData = $getProduct->getProduct();
-        return $this->render('shop',$productData);
+        $this->render('shop', $productData);
     }
 
+    public function deleteShopProduct()
+    {
+        $id = $_GET['id'] ?? "";
+        var_dump('Controller: '.$_GET['id']);
+        if($id) {
+            $deleteProduct = new ProductModel();
+            $deleteData = $deleteProduct->deleteProduct($id);
+            $this->render('shop', $deleteData);
+        }
+    }
 
-//    public function fetchProduct()
-//    {
-//     MIJN VRAAG!
-//     Is dit de bedoeling?
-//        $getProduct = new ProductModel();
-//        return $this->render($getProduct->getProduct());
-//    }
+    public function updateShopProduct()
+    {
 
+    }
 
+    public function createShopProduct()
+    {
+        $nameProduct = $_POST['nameProduct'] ?? "";
+        $brand = $_POST['brand'] ?? "";
+        $specification = $_POST['specification'] ?? "";
+        $fitting = $_POST['fitting'] ?? "";
+        $price = $_POST['price'] ?? "";
+        $description = $_POST['description'] ?? "";
+        $stock = $_POST['stock'] ?? "";
 
+        if($nameProduct || $brand || $specification || $fitting || $price || $description || $stock) {
+            $createProduct = new ProductModel();
+            $create = $createProduct->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock);
+            $this->render('shop', $create);
+        }
+    }
 }

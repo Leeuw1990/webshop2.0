@@ -2,14 +2,16 @@
 
 namespace app\controller;
 
-use app\core\Application;
+use Mustache_Engine;
+use Mustache_Loader_FilesystemLoader;
 
-class Controller
+abstract class Controller
 {
-    public function render($view)
+    public function render($view, $data)
     {
-        return Application::$app->router->renderView($view);
+        $mustache = new Mustache_Engine([
+            'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__, 3).'/view')
+        ]);
+        echo $mustache->render($view, ['data' => $data]);
     }
-    // RenderView hebben alle controllers nodig. Om dubbele code te voorkomen. Wordt iedere controller geimplementeerd
-    // met de controller class.
 }

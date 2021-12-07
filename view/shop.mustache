@@ -5,3 +5,34 @@
     <li></li>
 </lu>
 <a href='/'>Home</a>
+<form method="POST" class="createproduct" action="/createproduct">
+        <input class="add" type="text" placeholder="name product" name="nameProduct" required id="test">
+        <input class="add" type="text" placeholder="brand" name="brand" required id="test">
+        <input class="add" type="text" placeholder="specification" name="specification" required id="test">
+        <input class="add" type="text" placeholder="fitting" name="fitting" required id="test">
+        <input class="add" type="text" placeholder="price" name="price" required id="test">
+        <input class="add" type="text" placeholder="description" name="description" required id="test">
+        <input class="add" type="text" placeholder="stock" name="stock" required id="test">
+        <button class="addButton" type="submit" value="Submit">Submit</button>
+</form>
+
+
+<table>
+{{#data}}
+<tr>
+<td>{{nameProduct}}</td>
+<td>{{brand}}</td>
+<td>{{price}} euro</td>
+<td>{{specification}}</td>
+<td>{{fitting}}</td>
+<td>{{specification}}</td>
+<td>{{stock}}</td>
+<td><a href="http://webshop2.0.xpdev/shopupdate?id={{id}}">UPDATE</td>
+<td><a href="http://webshop2.0.xpdev/shopdelete?id={{id}}">DELETE</td>
+<tr>
+{{/data}}
+</table>
+
+
+
+

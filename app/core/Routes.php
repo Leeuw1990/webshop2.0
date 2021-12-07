@@ -4,7 +4,6 @@ use app\controller\ProductController;
 use app\controller\SiteController;
 use app\controller\AuthController;
 
-
 class Routes
 {
     public function routesArray()
@@ -16,14 +15,16 @@ class Routes
                '/contact'=> [SiteController::class ,'contact'],
                '/login' => [AuthController::class, 'login'],
                '/register' => [AuthController::class, 'register'],
-               '/shop' => [ProductController::class, 'shop']
+               '/shop' => [ProductController::class, 'shop'],
+               '/shopdelete' => [ProductController::class, 'deleteShopProduct'],
+               '/shopupdate' => [ProductController::class, 'deleteShopProduct']
            ),
            'post' => array(
                '/login' => [AuthController::class, 'login'],
-               '/register' => [AuthController::class, 'register']
+               '/register' => [AuthController::class, 'register'],
+               '/createproduct' => [ProductController::class, 'createShopProduct']
            )
         );
-       // Multidemensional array: Met alle get en post requests.
     }
 }
 
