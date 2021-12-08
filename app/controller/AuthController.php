@@ -18,6 +18,14 @@ class AuthController extends Controller
         }
     }
 
+    public function logout()
+    {
+        $logout = new UserModel();
+        $log = $logout->logout();
+        $this->render('home', $log);
+        header('Location: http://webshop2.0.xpdev/');
+    }
+
     public function registerPage()
     {
         $this->render('register', '');

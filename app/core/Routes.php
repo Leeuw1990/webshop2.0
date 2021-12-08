@@ -20,6 +20,7 @@ class Routes
                '/update' => [ProductController::class, 'update']
            ),
            'post' => array(
+               '/logout' => [AuthController::class, 'logout'],
                '/login' => [AuthController::class, 'login'],
                '/registeruser' => [AuthController::class, 'registerUser'],
                '/createproduct' => [ProductController::class, 'createShopProduct'],

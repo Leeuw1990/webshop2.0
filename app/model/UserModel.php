@@ -14,11 +14,11 @@ class UserModel
         $this->db = new Database();
     }
 
-//    public function getUserById($id)
-//    {
-//        $sql = "SELECT * FROM users WHERE id=$id";
-//        return $this->db->getConnection()->query($sql);
-//    }
+    public function logout()
+    {
+        unset($_SESSION['firstName']);
+        session_destroy();
+    }
 
     public function register($firstName, $lastName, $email, $password, $postal, $city, $country, $houseNumber, $phone)
     {
