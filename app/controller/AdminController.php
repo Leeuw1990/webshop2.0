@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\model\ProductModel;
+use app\model\UserModel;
 
 class AdminController extends Controller
 {
@@ -13,6 +14,8 @@ class AdminController extends Controller
         $productData = $getProduct->getProduct();
         $this->render('admin', $productData);
     }
+
+
 
 
 

@@ -4,19 +4,25 @@
 <link href="view/styles/shop.css" rel="stylesheet" />
 <title>Shop</title>
 </head>
-<body>
-<h1>Shop</h1>
+<body class="shop">
+<div class="topnav">
+<a href='/'>Home</a>
+<a href='/register'>register</a>
+<a class="active" href='/shop'>shop</a>
+<a href='/admin'>admin</a>
+</div>
 
-<table>
+<table class="productTab">
 {{#data}}
 <tr>
-<td>{{nameProduct}}</td>
-<td>{{brand}}</td>
-<td>{{price}} euro</td>
-<td>{{specification}}</td>
-<td>{{fitting}}</td>
-<td>{{specification}}</td>
-<td>{{stock}}</td>
+<td>Product: {{nameProduct}}</td>
+<td>Merk: {{brand}}</td>
+<td>Prijs: {{price}} euro</td>
+<td>Specificatie: {{specification}}</td>
+<td>Fitting: {{fitting}}</td>
+<td>Infomatie: {{description}}</td>
+<td>Voorraad: {{stock}}</td>
+<td>Bestel</td>
 <tr>
 {{/data}}
 </table>

@@ -1,8 +1,6 @@
 .home {
-    flex-direction: column;
-    display: flex;
+    margin: 35px;
     border: solid black 3px;
-    margin: 50px;
 }
 
 .topnav {
@@ -32,6 +30,34 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #04AA6D;
+    background-color: red;
     color: white;
+}
+
+.intro {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.textIntro {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -2,29 +2,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="view/styles/register.css" rel="stylesheet" />
     <title>Register</title>
 </head>
-<body>
+<body class="register">
+<div class="topnav">
+<a href='/'>Home</a>
+<a class="active" href='/register'>register</a>
+<a href='/shop'>shop</a>
+<a href='/admin'>admin</a>
+</div>
 
-<h1>Register</h1>
-
-<form action="" method="post">
+<form action="/registeruser" method="POST" class="formReg">
     <label>First name:</label>
     <input type="text" id="register" name="firstName">
+
     <label>Last name:</label>
     <input type="text" id="register" name="lastName">
-    <label>Username:</label>
-    <input type="text" id="register" name="username">
+
     <label>E-mail:</label>
     <input type="text" id="register" name="email">
+
     <label>Password:</label>
     <input type="text" id="register" name="password">
-    <label>Password:</label>
-    <input type="text" id="register" name="confirmPassword">
+
+    <label>Postcode:</label>
+    <input type="text" id="register" name="postal">
+
+    <label>Plaatsnaam:</label>
+    <input type="text" id="register" name="city">
+
+     <label>Land:</label>
+     <input type="text" id="register" name="country">
+
+     <label>Huisnummer:</label>
+     <input type="text" id="register" name="houseNumber">
+
+     <label>phone:</label>
+     <input type="text" id="register" name="phone">
+
     <input type="submit" value="Submit">
 </form>
-<a href='/'>Home</a>
-
 
 </body>
 </html>

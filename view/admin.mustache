@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link/>
+<link href="view/styles/admin.css" rel="stylesheet" />
 <title>Admin</title>
 </head>
-<body>
-<h1>admin</h1>
+<body class="admin">
+<div class="topnav">
 <a href='/'>Home</a>
+<a href='/register'>register</a>
+<a href='/shop'>shop</a>
+<a class="active" href='/admin'>admin</a>
+</div>
 
 <form method="POST" class="createproduct" action="/createproduct">
         <input class="add" type="text" placeholder="name product" name="nameProduct" required id="test">
@@ -19,8 +23,7 @@
         <button class="addButton" type="submit" value="Submit">Submit</button>
 </form>
 
-
-<table>
+<table class="productTab">
 {{#data}}
 <tr>
 <td>{{nameProduct}}</td>
@@ -28,7 +31,7 @@
 <td>{{price}} euro</td>
 <td>{{specification}}</td>
 <td>{{fitting}}</td>
-<td>{{specification}}</td>
+<td>{{description}}</td>
 <td>{{stock}}</td>
 <td><a href="http://webshop2.0.xpdev/update?id={{id}}">UPDATE</td>
 <td><a href="http://webshop2.0.xpdev/shopdelete?id={{id}}">DELETE</td>

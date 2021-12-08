@@ -11,14 +11,8 @@ use app\core\Request;
 
 class SiteController extends Controller
 {
-    public function contact()
-    {
-        $this->render('contact', '');
-    }
-
     public function home()
     {
         $this->render('home', '');
     }
-
 }

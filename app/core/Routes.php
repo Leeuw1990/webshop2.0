@@ -13,18 +13,17 @@ class Routes
            'get' => array
            (
                '/' =>  [SiteController::class, 'home'],
-               '/contact'=> [SiteController::class ,'contact'],
                '/admin'=> [AdminController::class ,'admin'],
 
-               '/login' => [AuthController::class, 'login'],
-               '/register' => [AuthController::class, 'register'],
+               '/login' => [AuthController::class, 'loginPage'],
+               '/register' => [AuthController::class, 'registerPage'],
                '/shop' => [ProductController::class, 'shop'],
                '/shopdelete' => [ProductController::class, 'deleteShopProduct'],
                '/update' => [ProductController::class, 'update']
            ),
            'post' => array(
                '/login' => [AuthController::class, 'login'],
-               '/register' => [AuthController::class, 'register'],
+               '/registeruser' => [AuthController::class, 'registerUser'],
                '/createproduct' => [ProductController::class, 'createShopProduct'],
                '/updateproduct' => [ProductController::class, 'updateShopProduct']
            )

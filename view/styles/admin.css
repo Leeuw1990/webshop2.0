@@ -1,6 +1,7 @@
-.shop {
+.admin {
     margin: 50px;
     border: solid black 3px;
+    height: 500px
 }
 
 .topnav {
@@ -32,6 +33,26 @@
 .topnav a.active {
     background-color: red;
     color: white;
+}
+
+.add {
+    margin: 10px;
+    border-radius: 5px;
+    height: 25px;
+    width: 100px;
+}
+
+.addButton {
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+}
+
+.createproduct {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
 }
 
 .productTab {
