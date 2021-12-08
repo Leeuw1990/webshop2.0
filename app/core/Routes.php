@@ -14,8 +14,6 @@ class Routes
            (
                '/' =>  [SiteController::class, 'home'],
                '/admin'=> [AdminController::class ,'admin'],
-
-               '/login' => [AuthController::class, 'loginPage'],
                '/register' => [AuthController::class, 'registerPage'],
                '/shop' => [ProductController::class, 'shop'],
                '/shopdelete' => [ProductController::class, 'deleteShopProduct'],

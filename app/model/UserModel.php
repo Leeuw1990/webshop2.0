@@ -14,11 +14,11 @@ class UserModel
         $this->db = new Database();
     }
 
-    public function getUserById($id)
-    {
-        $sql = "SELECT * FROM users WHERE id=$id";
-        return $this->db->getConnection()->query($sql);
-    }
+//    public function getUserById($id)
+//    {
+//        $sql = "SELECT * FROM users WHERE id=$id";
+//        return $this->db->getConnection()->query($sql);
+//    }
 
     public function register($firstName, $lastName, $email, $password, $postal, $city, $country, $houseNumber, $phone)
     {
@@ -27,12 +27,19 @@ class UserModel
         $this->db->getConnection()->query($sql);
     }
 
-    public function login()
+    public function login($email, $password)
     {
-
+        $sql = "SELECT firstName, email, password, id FROM users WHERE email ='$email'";
+        $result =  $this->db->getConnection()->query($sql);
+        foreach ($result as $value) {
+            $first = $value['firstName'];
+            $pass = $value['password'];
+            $id = $value['id'];
+        }
+        if ($password == $pass) {
+            $_SESSION['firstName'] = $first;
+        } else {
+            exit();
+        }
     }
-
-
-
-
 }

@@ -5,7 +5,7 @@ use app\model\UserModel;
 
 class AuthController extends Controller
 {
-    public function loginPage()
+    public function login()
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -13,10 +13,9 @@ class AuthController extends Controller
         if($email && $password) {
             $login = new UserModel();
             $loginData = $login->login($email, $password);
-            $this->render('/shop', $loginData);
+            $this->render('home', $loginData);
+            header('Location: http://webshop2.0.xpdev/');
         }
-
-        $this->render('login', '');
     }
 
     public function registerPage()
@@ -40,6 +39,7 @@ class AuthController extends Controller
             $register = new UserModel();
             $registerPost = $register->register($firstName, $lastName, $email, $password, $postal, $city, $country, $houseNumber, $phone);
             $this->render('register', $registerPost);
+            header('Location: http://webshop2.0.xpdev/');
         }
     }
 
