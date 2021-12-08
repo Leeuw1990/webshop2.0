@@ -4,7 +4,7 @@ namespace app\model;
 
 use app\core\Model;
 
-class RegisterModel
+class UserModel
 {
 
 

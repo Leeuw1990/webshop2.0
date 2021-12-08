@@ -21,9 +21,4 @@ class SiteController extends Controller
         $this->render('home', '');
     }
 
-    public function admin()
-    {
-        $this->render('admin', '');
-    }
-
 }

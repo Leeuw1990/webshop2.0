@@ -22,7 +22,6 @@ class ProductModel
 
     public function getProductById($id)
     {
-
         $sql = "SELECT * FROM products WHERE id=$id";
         return $this->db->getConnection()->query($sql);
     }

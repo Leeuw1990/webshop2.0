@@ -1,7 +1,6 @@
 <?php
 
 namespace app\controller;
-use app\core\Database;
 use app\model\ProductModel;
 
 class ProductController extends Controller
@@ -31,6 +30,7 @@ class ProductController extends Controller
             $deleteProduct = new ProductModel();
             $deleteData = $deleteProduct->deleteProduct($id);
             $this->render('shop', $deleteData);
+            header('Location: http://webshop2.0.xpdev/admin');
         }
     }
 
@@ -49,6 +49,7 @@ class ProductController extends Controller
             $updateProduct = new ProductModel();
             $updateData = $updateProduct->updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $id);
             $this->render('shop', $updateData);
+            header('Location: http://webshop2.0.xpdev/admin');
         }
     }
 
@@ -66,6 +67,7 @@ class ProductController extends Controller
             $createProduct = new ProductModel();
             $create = $createProduct->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock);
             $this->render('shop', $create);
+            header('Location: http://webshop2.0.xpdev/admin');
         }
     }
 }
