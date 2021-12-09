@@ -27,7 +27,7 @@ class UserModel
         $this->db->getConnection()->query($sql);
     }
 
-    public function login($email, $password)
+    public function login($email, $enteredPassword)
     {
         $sql = "SELECT firstName, email, password, id FROM users WHERE email ='$email'";
         $result =  $this->db->getConnection()->query($sql);
@@ -36,10 +36,11 @@ class UserModel
             $pass = $value['password'];
             $id = $value['id'];
         }
-        if ($password == $pass) {
+        if (password_verify($enteredPassword, $pass) === TRUE) {
+            echo "Succes!";
             $_SESSION['firstName'] = $first;
         } else {
-            exit();
+            echo 'Invalid!';
         }
     }
 }
