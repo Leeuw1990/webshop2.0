@@ -43,11 +43,11 @@ class ProductController extends Controller
         $price = $_POST['price'] ?? "";
         $description = $_POST['description'] ?? "";
         $stock = $_POST['stock'] ?? "";
+        $categoryId = $_POST['category_id'] ?? "";
         $id = $_POST['id'] ?? "";
-        var_dump($id);
-        if($nameProduct && $brand && $specification && $fitting && $price && $description && $stock && $id) {
+        if($nameProduct && $brand && $specification && $fitting && $price && $description && $stock && $categoryId && $id) {
             $updateProduct = new ProductModel();
-            $updateData = $updateProduct->updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $id);
+            $updateData = $updateProduct->updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId, $id);
             $this->render('shop', $updateData);
             header('Location: http://webshop2.0.xpdev/admin');
         }
@@ -62,10 +62,11 @@ class ProductController extends Controller
         $price = $_POST['price'] ?? "";
         $description = $_POST['description'] ?? "";
         $stock = $_POST['stock'] ?? "";
+        $categoryId = $_POST['category_id'] ?? "";
 
-        if($nameProduct || $brand || $specification || $fitting || $price || $description || $stock) {
+        if($nameProduct || $brand || $specification || $fitting || $price || $description || $stock || $categoryId) {
             $createProduct = new ProductModel();
-            $create = $createProduct->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock);
+            $create = $createProduct->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId);
             $this->render('shop', $create);
             header('Location: http://webshop2.0.xpdev/admin');
         }

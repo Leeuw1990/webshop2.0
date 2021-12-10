@@ -12,6 +12,16 @@
         <input class="add" type="text" value="{{description}}" name="description" required id="test">
         <input class="add" type="text" value="{{stock}}" name="stock" required id="test">
         <input class="add" type="hidden" value="{{id}}" name="id" required id="test">
+    <label for="category_id">
+        <select name="category_id">
+            <option value="1">Hanglampen</option>
+            <option value="2">Wandlampen</option>
+            <option value="3">Spots</option>
+            <option value="4">Kroonluchters</option>
+            <option value="5">Vloerlampen</option>
+            <option value="6">Tafellampen</option>
+        </select>
+    </label>
         <button class="addButton" type="submit" value="Submit">Submit</button>
 {{/data}}
 </form>

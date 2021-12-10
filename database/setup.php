@@ -9,7 +9,10 @@
         fitting VARCHAR(30) NOT NULL,
         price DOUBLE(6,2) NOT NULL,
         description VARCHAR(255) NOT NULL,
-        stock INTEGER(6) NOT NULL)";
+        stock INTEGER(6) NOT NULL,
+        category_id INT(6), 
+        FOREIGN KEY (category_id) REFERENCES `category`(id)
+        )";
             if ($conn->getConnection()->query($sql) === TRUE) ;
 
         $sql1 = "CREATE TABLE IF NOT EXISTS users (
@@ -41,6 +44,24 @@
         FOREIGN KEY (role_id) REFERENCES roles(role_id)
         )";
         if($conn->getConnection()->query($roleUser) === TRUE);
+
+        $catProd = "CREATE TABLE IF NOT EXISTS catergory_products (
+        product_id INTEGER UNSIGNED NOT NULL,
+        catergory_id INTEGER UNSIGNED NOT NULL,
+
+        FOREIGN KEY (product_id) REFERENCES users(id),
+        FOREIGN KEY (catergory_id) REFERENCES catergory(catergory_id))";
+
+
+        $cat = "CREATE TABLE IF NOT EXISTS category (
+        id INT(6) NOT NULL AUTO_INCREMENT,
+        category_name VARCHAR(60) NOT NULL,
+        PRIMARY KEY (id))";
+        if($conn->getConnection()->query($cat) === TRUE);
+
+
+
+
 
 
 

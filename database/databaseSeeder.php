@@ -12,3 +12,11 @@
 
 //$userRole = "INSERT INTO users_roles (user_id, role_id) VALUES
 //(1, 2), (2, 1), (3, 1), (4, 1), (5, 1)";
+
+//"INSERT INTO `catergory` (`catergory_id`, `catergory_name`) VALUES
+//(1, 'Hanglampen'),
+//(2, 'Wandlampen'),
+//(3, 'Spots'),
+//(4, 'Kroonluchters'),
+//(5, 'Vloerlampen'),
+//(6, 'Tafellampen')"
