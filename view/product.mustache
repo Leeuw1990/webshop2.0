@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" />
+    <link href="view/styles/product.css" rel="stylesheet" />
     <title>Shop</title>
 </head>
-<body class="shopping">
+<body class="product">
 
 <h1>Add to</h1>
 
 <form method="POST" class="addTo" action="/addtocart">
     {{#data}}
-        <td>Product: {{nameProduct}}</td>
-        <td>Merk: {{brand}}</td>
-        <td>Prijs: {{price}} euro</td>
-        <td>Specificatie: {{specification}}</td>
-        <td>Fitting: {{fitting}}</td>
-        <td>Infomatie: {{description}}</td>
-        <td>Voorraad: {{stock}}</td>
-        <td>{{category_name}}</td>
+        <td><strong>Product: </strong>{{nameProduct}}</td>
+        <td><strong>Merk: </strong>{{brand}}</td>
+        <td><strong>Prijs: </strong>{{price}} euro</td>
+        <td><strong>Specificatie: </strong>{{specification}}</td>
+        <td><strong>Fitting: </strong>{{fitting}}</td>
+        <td><strong>Infomatie: </strong>{{description}}</td>
+        <td><strong>{{category_name}}</strong></td>
         <label for="amount" name="amount">
             <input value="1" type="text" name="amount">
         </label>

@@ -11,19 +11,20 @@
 <a class="active" href='/shop'>shop</a>
 <a href='/admin'>admin</a>
 <a href='/shopping'>Winkelwagen</a>
+    <a href='/account'>account</a>
 </div>
 
 <table class="productTab">
 {{#data}}
 <tr>
-<td>Product: {{nameProduct}}</td>
-<td>Merk: {{brand}}</td>
-<td>Prijs: {{price}} euro</td>
-<td>Specificatie: {{specification}}</td>
-<td>Fitting: {{fitting}}</td>
-<td>Infomatie: {{description}}</td>
-<td>Voorraad: {{stock}}</td>
-<td>{{category_name}}</td>
+<td><strong>Product: </strong>{{nameProduct}}</td>
+<td><strong>Merk: </strong>{{brand}}</td>
+<td><strong>Prijs: </strong>{{price}} euro</td>
+<td><strong>Specificatie: </strong>{{specification}}</td>
+<td><strong>Fitting: </strong>{{fitting}}</td>
+<td><strong>Infomatie: </strong>{{description}}</td>
+<td><strong>Voorraad: </strong>{{stock}}</td>
+<td><strong>Categorie: </strong>{{category_name}}</td>
 <td><a href="http://webshop2.0.xpdev/product?id={{id}}">Bestel</td>
 <tr>
 {{/data}}

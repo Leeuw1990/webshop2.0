@@ -15,4 +15,10 @@ class SiteController extends Controller
     {
         $this->render('home', '');
     }
+
+    public function account()
+    {
+        $this->render('account', '');
+    }
+
 }

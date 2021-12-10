@@ -13,6 +13,7 @@ class Routes
            'get' => array
            (
                '/' =>  [SiteController::class, 'home'],
+               '/account' =>  [SiteController::class, 'account'],
                '/admin'=> [AdminController::class ,'admin'],
                '/register' => [AuthController::class, 'registerPage'],
                '/shop' => [ProductController::class, 'shop'],
