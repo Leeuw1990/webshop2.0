@@ -16,6 +16,8 @@ class Routes
                '/admin'=> [AdminController::class ,'admin'],
                '/register' => [AuthController::class, 'registerPage'],
                '/shop' => [ProductController::class, 'shop'],
+               '/product' => [ProductController::class, 'productById'],
+               '/shopping' => [ProductController::class, 'getShoppingCart'],
                '/shopdelete' => [ProductController::class, 'deleteShopProduct'],
                '/update' => [ProductController::class, 'update']
            ),
@@ -24,7 +26,8 @@ class Routes
                '/login' => [AuthController::class, 'login'],
                '/registeruser' => [AuthController::class, 'registerUser'],
                '/createproduct' => [ProductController::class, 'createShopProduct'],
-               '/updateproduct' => [ProductController::class, 'updateShopProduct']
+               '/updateproduct' => [ProductController::class, 'updateShopProduct'],
+               '/addtocart' => [ProductController::class, 'order'],
            )
         );
     }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="view/styles/shopping.css" rel="stylesheet" />
+    <title>Shop</title>
+</head>
+<body class="shopping">
+<div class="topnav">
+    <a href='/'>Home</a>
+    <a href='/register'>register</a>
+    <a href='/shop'>shop</a>
+    <a href='/admin'>admin</a>
+    <a class="active" href='/shopping'>Winkelwagen</a>
+</div>
+<h1>Winkelwagen</h1>
+
+<table class="productTab">
+    {{#data}}
+        <tr>
+            <td><strong>Product: </strong> {{nameProduct}}</td>
+            <td><strong>Merk: </strong>{{brand}}</td>
+            <td><strong>Prijs: </strong>{{price}} euro</td>
+            <td><strong>Specificatie: </strong>{{specification}}</td>
+            <td><strong>Fitting: </strong>{{fitting}}</td>
+            <td><strong>Hoeveelheid: </strong>{{amount}}</td>
+    <tr>
+    {{/data}}
+</table>
+
+</body>
+</html>

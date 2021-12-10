@@ -49,6 +49,7 @@ class UserModel
         if (password_verify($enteredPassword, $pass) === TRUE) {
             echo "Succes!";
             $_SESSION['firstName'] = $first;
+            $_SESSION['id'] = $id;
         } else {
             echo 'Invalid!';
         }

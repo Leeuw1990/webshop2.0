@@ -24,6 +24,15 @@ class ProductModel
         $this->db = new Database();
     }
 
+    public function getShoppingCart($id)
+    {
+        $sql = "SELECT * FROM products
+                INNER JOIN orders ON products.id = orders.product_id
+                INNER JOIN users ON orders.user_id = users.id
+                WHERE users.id = $id";
+        return $this->db->getConnection()->query($sql);
+    }
+
     public function getProduct()
     {
 //        $sql = "SELECT * FROM $this->products INNER JOIN category ON category_id";
@@ -56,4 +65,11 @@ class ProductModel
         VALUES ('$nameProduct', '$brand', '$specification', '$fitting', '$price', '$description', '$stock', '$categoryId')";
         return $this->db->getConnection()->query($sql);
     }
+
+    public function orderProduct($productId, $id, $amount)
+    {
+        $sql = "INSERT INTO orders (product_id, user_id, amount) VALUES ('$productId', '$id', '$amount')";
+        return $this->db->getConnection()->query($sql);
+    }
+
 }

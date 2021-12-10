@@ -5,12 +5,42 @@ use app\model\ProductModel;
 
 class ProductController extends Controller
 {
+    public function getShoppingCart()
+    {
+        $id = $_SESSION['id'] ?? "";
+        $cart = new ProductModel();
+        $cartData = $cart->getShoppingCart($id);
+        $this->render('shopping', $cartData);
+    }
+
+    public function order()
+    {
+        $productId = $_POST['product_id'] ?? "";
+        $id = $_SESSION['id'] ?? "";
+        $amount = $_POST['amount'] ?? "";
+
+        if ($productId && $id && $amount) {
+            $order = new ProductModel();
+            $orderData = $order->orderProduct($productId, $id, $amount);
+            $this->render('shop', $orderData);
+        }
+    }
 
     public function shop()
     {
         $getProduct = new ProductModel();
         $productData = $getProduct->getProduct();
         $this->render('shop', $productData);
+    }
+
+    public function productById()
+    {
+        $id = $_GET['id'] ?? "";
+        if ($id) {
+            $getProductById = new ProductModel();
+            $dataById = $getProductById->getProductById($id);
+            $this->render('product', $dataById);
+        }
     }
 
     public function update()

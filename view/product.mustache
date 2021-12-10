@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" />
+    <title>Shop</title>
+</head>
+<body class="shopping">
+
+<h1>Add to</h1>
+
+<form method="POST" class="addTo" action="/addtocart">
+    {{#data}}
+        <td>Product: {{nameProduct}}</td>
+        <td>Merk: {{brand}}</td>
+        <td>Prijs: {{price}} euro</td>
+        <td>Specificatie: {{specification}}</td>
+        <td>Fitting: {{fitting}}</td>
+        <td>Infomatie: {{description}}</td>
+        <td>Voorraad: {{stock}}</td>
+        <td>{{category_name}}</td>
+        <label for="amount" name="amount">
+            <input value="1" type="text" name="amount">
+        </label>
+        <label for="product_id">
+            <input value="{{id}}" type="hidden" name="product_id" >
+        </label>
+        <button class="addButton" type="submit" value="Submit">Bevestig</button>
+    {{/data}}
+</form>
+
+</body>
+</html>
