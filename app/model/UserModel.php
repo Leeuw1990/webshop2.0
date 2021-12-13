@@ -20,10 +20,23 @@ class UserModel
         session_destroy();
     }
 
-    public function register($firstName, $lastName, $email, $password, $postal, $city, $country, $houseNumber, $phone)
+    public function getUser($id)
     {
-        $sql = "INSERT INTO users(firstName, lastName, email, password, postal, city, country, houseNumber, phone)
-                VALUES('$firstName', '$lastName', '$email', '$password', '$postal', '$city', '$country', '$houseNumber', '$phone')";
+        $sql = "SELECT * FROM users WHERE id = $id";
+        return $this->db->getConnection()->query($sql);
+    }
+
+    public function updateWallet($wallet, $id)
+    {
+
+            $sql = "UPDATE users SET wallet = wallet +$wallet WHERE id = $id";
+            return $this->db->getConnection()->query($sql);
+    }
+
+    public function register($firstName, $lastName, $email, $password, $postal, $streetName, $city, $country, $houseNumber, $phone)
+    {
+        $sql = "INSERT INTO users(firstName, lastName, email, password, postal, streetName, city, country, houseNumber, phone, wallet)
+                VALUES('$firstName', '$lastName', '$email', '$password', '$postal', '$streetName', '$city', '$country', '$houseNumber', '$phone', 0)";
         if($this->db->getConnection()->query($sql)) {
             $getUserId = "SELECT id FROM users WHERE email ='$email'";
             $result = $this->db->getConnection()->query($getUserId) ;

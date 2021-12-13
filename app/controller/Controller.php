@@ -4,9 +4,10 @@ namespace app\controller;
 
 use Mustache_Engine;
 use Mustache_Loader_FilesystemLoader;
-
+session_start();
 abstract class Controller
 {
+
     public function render($view, $data)
     {
         $mustache = new Mustache_Engine([

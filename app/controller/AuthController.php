@@ -39,14 +39,15 @@ class AuthController extends Controller
         $password = $_POST['password'];
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         $postal = $_POST['postal'];
+        $streetName = $_POST['streetName'];
         $city = $_POST['city'];
         $country = $_POST['country'];
         $houseNumber = $_POST['houseNumber'];
         $phone = $_POST['phone'];
 
-        if($firstName && $lastName &&  $email &&  $passwordHash &&  $postal &&  $city &&  $country &&  $houseNumber &&  $phone) {
+        if($firstName && $lastName &&  $email &&  $passwordHash &&  $postal && $streetName &&  $city &&  $country &&  $houseNumber &&  $phone) {
             $register = new UserModel();
-            $registerPost = $register->register($firstName, $lastName, $email, $passwordHash, $postal, $city, $country, $houseNumber, $phone);
+            $registerPost = $register->register($firstName, $lastName, $email, $passwordHash, $postal, $streetName, $city, $country, $houseNumber, $phone);
             $this->render('register', $registerPost);
             header('Location: http://webshop2.0.xpdev/');
         }

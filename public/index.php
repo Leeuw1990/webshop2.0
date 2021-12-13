@@ -2,8 +2,6 @@
 
 require 'Autoloader.php';
 
-session_start();
-
 use app\core\Application;
 
 AutoLoader::load();

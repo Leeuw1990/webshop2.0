@@ -17,8 +17,6 @@ class ProductModel
     private $description ='$description';
     private $stock ='$stock';
 
-
-
     public function __construct()
     {
         $this->db = new Database();
@@ -68,8 +66,23 @@ class ProductModel
 
     public function orderProduct($productId, $id, $amount)
     {
-        $sql = "INSERT INTO orders (product_id, user_id, amount) VALUES ('$productId', '$id', '$amount')";
-        return $this->db->getConnection()->query($sql);
+        $productExists = $this->getShoppingCart($id);
+        foreach ($productExists as $val) {
+            $currentProduct = $val['product_id'];
+        }
+        if ($currentProduct !== $productId) {
+            $sql = "INSERT INTO orders (product_id, user_id, amount) VALUES ('$productId', '$id', '$amount')";
+            if ($this->db->getConnection()->query($sql)) {
+                $setNewStock = "UPDATE products SET stock = stock -$amount WHERE id=$id";
+                return $this->db->getConnection()->query($setNewStock);
+            }
+        } else {
+            $changeAmount = "UPDATE orders SET amount = amount +$amount WHERE id = $id";
+            if ($this->db->getConnection()->query($changeAmount)) {
+                $setNewStock = "UPDATE products SET stock = stock -$amount WHERE id=$id";
+                return $this->db->getConnection()->query($setNewStock);
+            }
+        }
+        return true;
     }
-
 }

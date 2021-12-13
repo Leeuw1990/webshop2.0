@@ -23,6 +23,7 @@ class ProductController extends Controller
             $order = new ProductModel();
             $orderData = $order->orderProduct($productId, $id, $amount);
             $this->render('shop', $orderData);
+            header('Location: http://webshop2.0.xpdev/shop');
         }
     }
 

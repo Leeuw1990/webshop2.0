@@ -7,13 +7,13 @@
         brand VARCHAR(30) NOT NULL,
         specification VARCHAR(225) NOT NULL,
         fitting VARCHAR(30) NOT NULL,
-        price DOUBLE(6,2) NOT NULL,
+        price DECIMAL (6,2) NOT NULL,
         description VARCHAR(255) NOT NULL,
         stock INTEGER(6) NOT NULL,
         category_id INT(6), 
         FOREIGN KEY (category_id) REFERENCES `category`(id)
         )";
-            if ($conn->getConnection()->query($sql) === TRUE) ;
+            if ($conn->getConnection()->query($sql) === TRUE);
 
         $sql1 = "CREATE TABLE IF NOT EXISTS users (
 		id INT(6) AUTO_INCREMENT PRIMARY KEY,
@@ -22,10 +22,12 @@
         email VARCHAR(45) NOT NULL UNIQUE,
         password VARCHAR(225) NOT NULL,
         postal VARCHAR(8) NOT NULL,
+        streetName VARCHAR(100) NOT NULL,
         city VARCHAR(45) NOT NULL,
         country VARCHAR(45) NOT NULL,
         houseNumber INT(6) NOT NULL,
-        phone VARCHAR(15) NOT NULL
+        phone VARCHAR(15) NOT NULL,
+        wallet DECIMAL(6,2)
         )";
         if($conn->getConnection()->query($sql1) === TRUE);
 
@@ -65,6 +67,7 @@ $orders = "CREATE TABLE IF NOT EXISTS orders (id INT(6) AUTO_INCREMENT PRIMARY K
                 amount INT(6),
                 FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
                 FOREIGN KEY(product_id) REFERENCES products(id) ON DELETE CASCADE)";
+        if($conn->getConnection()->query($orders) === TRUE);
 
 
 

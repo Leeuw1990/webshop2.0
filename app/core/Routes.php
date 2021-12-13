@@ -29,6 +29,7 @@ class Routes
                '/createproduct' => [ProductController::class, 'createShopProduct'],
                '/updateproduct' => [ProductController::class, 'updateShopProduct'],
                '/addtocart' => [ProductController::class, 'order'],
+               '/saldo' =>  [SiteController::class, 'wallet'],
            )
         );
     }
