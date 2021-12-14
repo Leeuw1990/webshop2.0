@@ -13,9 +13,9 @@ class ProductModel
     private $brand = '$brand';
     private $specification = '$specification';
     private $fitting = 'fitting';
-    private $price ='$price';
-    private $description ='$description';
-    private $stock ='$stock';
+    private $price = '$price';
+    private $description = '$description';
+    private $stock = '$stock';
 
     public function __construct()
     {
@@ -24,16 +24,24 @@ class ProductModel
 
     public function getShoppingCart($id)
     {
-        $sql = "SELECT * FROM products
-                INNER JOIN orders ON products.id = orders.product_id
-                INNER JOIN users ON orders.user_id = users.id
-                WHERE users.id = $id";
+        $sql = "SELECT * FROM orders
+                INNER JOIN products ON orders.product_id = products.id
+                WHERE orders.user_id = $id";
         return $this->db->getConnection()->query($sql);
+
+    }
+
+
+    public function getOrder($id)
+    {
+        $sql = "SELECT * FROM orders
+                 WHERE user_id = $id";
+        $orderCollection = $this->db->getConnection()->query($sql);
+        return $orderCollection->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getProduct()
     {
-//        $sql = "SELECT * FROM $this->products INNER JOIN category ON category_id";
         $sql = "SELECT p.id, nameProduct, brand, specification, fitting, price, description, stock, category_name FROM products AS p INNER JOIN category ON p.id = category.`id`";
         return $this->db->getConnection()->query($sql);
     }
@@ -66,23 +74,42 @@ class ProductModel
 
     public function orderProduct($productId, $id, $amount)
     {
-        $productExists = $this->getShoppingCart($id);
-        foreach ($productExists as $val) {
-            $currentProduct = $val['product_id'];
-        }
-        if ($currentProduct !== $productId) {
-            $sql = "INSERT INTO orders (product_id, user_id, amount) VALUES ('$productId', '$id', '$amount')";
-            if ($this->db->getConnection()->query($sql)) {
-                $setNewStock = "UPDATE products SET stock = stock -$amount WHERE id=$id";
-                return $this->db->getConnection()->query($setNewStock);
-            }
+        $productExists = $this->getOrder($id);
+        if (empty($productExists)) {
+            $this->decreaseStock($productId, $amount);
+            return $this->addProductToCart($productId, $id, $amount);
         } else {
-            $changeAmount = "UPDATE orders SET amount = amount +$amount WHERE id = $id";
-            if ($this->db->getConnection()->query($changeAmount)) {
-                $setNewStock = "UPDATE products SET stock = stock -$amount WHERE id=$id";
-                return $this->db->getConnection()->query($setNewStock);
+            $productIsInCart = false;
+            $orderAmount = 0;
+            $orderId = '';
+            foreach ($productExists as $value) {
+                if ($productId == $value['product_id']) {
+                    $orderAmount = $value['amount'];
+                    $orderId = $value['id'];
+                    $productIsInCart = true;
+                }
+            }
+            if ($productIsInCart == true) {
+                $newAmount = $orderAmount + $amount;
+                $changeAmount = "UPDATE orders SET amount = $newAmount WHERE id = $orderId";
+                $this->decreaseStock($productId, $amount);
+                return $this->db->getConnection()->query($changeAmount);
+            } else {
+                $this->decreaseStock($productId, $amount);
+                return $this->addProductToCart($productId, $id, $amount);
             }
         }
-        return true;
+    }
+
+    public function decreaseStock($id, $amount)
+    {
+        $setNewStock = "UPDATE products SET stock = stock -$amount WHERE id=$id";
+        return $this->db->getConnection()->query($setNewStock);
+    }
+
+    public function addProductToCart($productId, $id, $amount)
+    {
+        $sql = "INSERT INTO orders (product_id, user_id, amount) VALUES ('$productId', '$id', '$amount')";
+        return $this->db->getConnection()->query($sql);
     }
 }

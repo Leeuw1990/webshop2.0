@@ -1,18 +1,17 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<link href="view/styles/register.css" rel="stylesheet" />
+    <link href="view/styles/register.css" rel="stylesheet"/>
     <title>Register</title>
 </head>
 <body class="register">
 <div class="topnav">
-<a href='/'>Home</a>
-<a class="active" href='/register'>register</a>
-<a href='/shop'>shop</a>
-<a href='/admin'>admin</a>
-<a href='/shopping'>winkelwagen</a>
-    <a href='/account'>account</a>
+    <a href='/'>Home</a>
+    <a class="active" href='/register'>register</a>
+    <a href='/shop'>shop</a>
+    {{#roles}}<a href='/admin'>admin</a>{{/roles}}
+    <a href='/shopping'>winkelwagen</a>
+    {{#roles}}<a href='/account'>account</a>{{/roles}}
 </div>
 
 <form action="/registeruser" method="POST" class="formReg">
@@ -37,14 +36,14 @@
     <label>Plaatsnaam:</label>
     <input type="text" id="register" name="city">
 
-     <label>Land:</label>
-     <input type="text" id="register" name="country">
+    <label>Land:</label>
+    <input type="text" id="register" name="country">
 
-     <label>Huisnummer:</label>
-     <input type="text" id="register" name="houseNumber">
+    <label>Huisnummer:</label>
+    <input type="text" id="register" name="houseNumber">
 
-     <label>phone:</label>
-     <input type="text" id="register" name="phone">
+    <label>phone:</label>
+    <input type="text" id="register" name="phone">
 
     <input type="submit" value="Submit">
 </form>

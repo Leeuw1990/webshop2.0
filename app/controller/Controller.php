@@ -10,9 +10,20 @@ abstract class Controller
 
     public function render($view, $data)
     {
+        $id = $_SESSION['id'] ?? '';
+        $roles = $_SESSION['role_id'] ?? '';
+//        $firstName = $_SESSION['firstName'];
+
+
         $mustache = new Mustache_Engine([
             'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__, 3).'/view')
         ]);
-        echo $mustache->render($view, ['data' => $data]);
+
+        $test = [];
+
+        $test['name'] = 'jeffrey';
+        $test['id'] = 6;
+
+        echo $mustache->render($view, ['data' => $test]);
     }
 }
