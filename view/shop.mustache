@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="view/styles/shop.css" rel="stylesheet" />
+<title>Shop</title>
+</head>
+<body class="shop">
+<div class="topnav">
+    <a href='/'>Home</a>
+    <a href='/register'>register</a>
+    <a class="active" href='/shop'>shop</a>
+{{#session.admin}}<a href='/admin'>admin</a>{{/session.admin}}
+    <a href='/shopping'>Winkelwagen</a>
+{{#session.firstName}} <a href='/account'>account</a>{{/session.firstName}}
+</div>
+
+<table class="productTab">
+{{#data}}
+<tr>
+<td><strong>Product: </strong>{{nameProduct}}</td>
+<td><strong>Merk: </strong>{{brand}}</td>
+<td><strong>Prijs: </strong>{{price}} euro</td>
+<td><strong>Specificatie: </strong>{{specification}}</td>
+<td><strong>Fitting: </strong>{{fitting}}</td>
+<td><strong>Infomatie: </strong>{{description}}</td>
+<td><strong>Voorraad: </strong>{{stock}}</td>
+<td><strong>Categorie: </strong>{{category_name}}</td>
+<td><a href="http://webshop2.0.xpdev/product?id={{id}}">Bestel</td>
+<tr>
+{{/data}}
+</table>
+
+</body>
+</html>
+
+
+
+

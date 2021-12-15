@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="view/styles/admin.css" rel="stylesheet" />
+<title>Admin</title>
+</head>
+<body class="admin">
+<div class="topnav">
+<a href='/'>Home</a>
+<a href='/register'>register</a>
+<a href='/shop'>shop</a>
+<a class="active" href='/admin'>admin</a>
+<a href='/shopping'>winkelwagen</a>
+    <a href='/account'>account</a>
+</div>
+
+<form method="POST" class="createproduct" action="/createproduct">
+        <input class="add" type="text" placeholder="name product" name="nameProduct" required id="test">
+        <input class="add" type="text" placeholder="brand" name="brand" required id="test">
+        <input class="add" type="text" placeholder="specification" name="specification" required id="test">
+        <input class="add" type="text" placeholder="fitting" name="fitting" required id="test">
+        <input class="add" type="text" placeholder="price" name="price" required id="test">
+        <input class="add" type="text" placeholder="description" name="description" required id="test">
+        <input class="add" type="text" placeholder="stock" name="stock" required id="test">
+    <label for="category_id">
+        <select name="category_id">
+            <option value="1">Hanglampen</option>
+            <option value="2">Wandlampen</option>
+            <option value="3">Spots</option>
+            <option value="4">Kroonluchters</option>
+            <option value="5">Vloerlampen</option>
+            <option value="6">Tafellampen</option>
+        </select>
+    </label>
+    <button class="addButton" type="submit" value="Submit">Submit</button>
+</form>
+
+<table class="productTab">
+{{#data}}
+<tr>
+<td>{{nameProduct}}</td>
+<td>{{brand}}</td>
+<td>{{price}} euro</td>
+<td>{{specification}}</td>
+<td>{{fitting}}</td>
+<td>{{description}}</td>
+<td>{{stock}}</td>
+<td>{{category_name}}</td>
+<td><a href="http://webshop2.0.xpdev/update?id={{id}}">UPDATE</td>
+<td><a href="http://webshop2.0.xpdev/shopdelete?id={{id}}">DELETE</td>
+<tr>
+{{/data}}
+</table>
+
+
+</body>
+</html>

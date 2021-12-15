@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="view/styles/product.css" rel="stylesheet" />
+    <title>Shop</title>
+</head>
+<body class="product">
+
+<h1>Add to</h1>
+
+<form method="POST" class="addTo" action="/addtocart">
+    {{#data}}
+        <td><strong>Product: </strong>{{nameProduct}}</td>
+        <td><strong>Merk: </strong>{{brand}}</td>
+        <td><strong>Prijs: </strong>{{price}} euro</td>
+        <td><strong>Specificatie: </strong>{{specification}}</td>
+        <td><strong>Fitting: </strong>{{fitting}}</td>
+        <td><strong>Infomatie: </strong>{{description}}</td>
+        <td><strong>{{category_name}}</strong></td>
+        <label for="amount" name="amount">
+            <input value="1" type="text" name="amount">
+        </label>
+        <label for="product_id">
+            <input value="{{id}}" type="hidden" name="product_id" >
+        </label>
+        <button class="addButton" type="submit" value="Submit">Bevestig</button>
+    {{/data}}
+</form>
+
+</body>
+</html>

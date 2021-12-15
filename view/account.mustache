@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="view/styles/account.css" rel="stylesheet" />
+    <title>Account</title>
+</head>
+<body class="account">
+<div class="topnav">
+    <a href='/'>Home</a>
+    <a href='/register'>register</a>
+    <a href='/shop'>shop</a>
+    <a href='/admin'>admin</a>
+    <a href='/shopping'>winkelwagen</a>
+    <a class="active" href='/account'>account</a>
+</div>
+
+<h1>Profiel</h1>
+<table class="userDetails">
+    {{#data}}
+        <tr>
+            <td><strong>Voornaam: </strong>{{firstname}}</td>
+            <td><strong>Achternaam: </strong>{{lastName}}</td>
+            <td><strong>E-mail: </strong>{{email}}</td>
+            <td><strong>Postcode: </strong>{{postal}}</td>
+            <td><strong>Straat: </strong>{{streetName}}</td>
+            <td><strong>Plaatsnaam: </strong>{{city}}</td>
+            <td><strong>Land: </strong>{{country}}</td>
+            <td><strong>Huisnummer: </strong>{{houseNumber}}</td>
+            <td><strong>Telefoonnummer: </strong>{{phone}}</td>
+    <tr>
+    {{/data}}
+</table>
+
+<form method="POST" action="/saldo">
+{{#data}}
+    <h1>Saldo: {{wallet}}</h1>
+    <label for="wallet">Portemonnee aanvullen: </label>
+    <input name="wallet" type="text" value="0.00">
+    <input type="submit" value="Stort geld" >
+{{/data}}
+</form>
+
+
+</body>
+</html>
+
+<!--docBlock-->

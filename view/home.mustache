@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="view/styles/home.css" rel="stylesheet"/>
+    <title>Shop</title>
+</head>
+<body class="home">
+<div class="topnav">
+    <a class="active" href='/'>Home</a>
+    <a href='/register'>register</a>
+    <a href='/shop'>shop</a>
+    {{#session.admin}}<a href='/admin'>admin</a>{{/session.admin}}
+    <a href='/shopping'>winkelwagen</a>
+    {{#session.firstName}}<a href='/account'>account</a>{{/session.firstName}}
+</div>
+
+<div class="intro">
+    <h1>Lampalicious</h1>
+</div>
+<div class="intro">
+    {{#session}}
+        <h1>Welkom {{session.firstName}}!</h1>
+    {{/session}}
+</div>
+
+<div class="textIntro">
+    <p>Lampalicious! voor ieder wat wils, Een gezellig lampje voor in de donkere dagen voor zowel binnen en buiten.</p>
+</div>
+
+<form action="/logout" method="POST" class="logout">
+    <input type="submit" value="Log uit"/>
+</form>
+
+{{#session}}
+<form method="POST" action="/login" class="login">
+    <label>E-mail:</label><br>
+    <input type="text" id="login" name="email"><br>
+    <label>Password:</label><br>
+    <input type="text" id="login" name="password">
+    <input type="submit" value="log in"/>
+</form>
+{{/session}}
+
+
+<div class="contact">
+    <h3>Contact</h3>
+    <p>Verwegistandreef 35, 3467QC</p>
+    <p>Utrecht</p>
+    <p>030-1111111</p>
+</div>
+
+</body>
+</html>

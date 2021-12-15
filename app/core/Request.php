@@ -2,6 +2,10 @@
 
 namespace app\core;
 
+// Request class: Is een classe in Object Oriented Programming wat HTTP reqeusts afhandeld.
+// Het is verantwoordelijke voor het uitgaande en binnenkomende verkeer.
+// https://codeigniter.com/user_guide/incoming/request.html
+
 class Request
 {
     public function getPath()
@@ -21,32 +25,5 @@ class Request
         return strtolower($_SERVER['REQUEST_METHOD']);
         //$_server[REQUEST_METHOD] = Controlleert of het een get, post, put of head method is/
         //Dat wordt gereturned in kleine letters.
-    }
-
-    public function isGet()
-    {
-        return $this->method() === 'get';
-    }
-
-    public function isPost()
-    {
-        return $this->method() === 'post';
-    }
-
-    public function getBody()
-    {
-        $body = [];
-        if ($this->method() === 'get') {
-            foreach ($_GET as $key => $value) {
-                $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
-            }
-        }
-        if ($this->method() === 'post') {
-            foreach ($_POST as $key => $value) {
-                $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
-
-            }
-        }
-        return $body;
     }
 }

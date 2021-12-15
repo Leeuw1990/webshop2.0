@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="view/styles/register.css" rel="stylesheet"/>
+    <title>Register</title>
+</head>
+<body class="register">
+<div class="topnav">
+    <a href='/'>Home</a>
+    <a class="active" href='/register'>register</a>
+    <a href='/shop'>shop</a>
+    {{#session.admin}}<a href='/admin'>admin</a>{{/session.admin}}
+    <a href='/shopping'>winkelwagen</a>
+    {{#session.firstName}}<a href='/account'>account</a>{{/session.firstName}}
+</div>
+
+<form action="/registeruser" method="POST" class="formReg">
+    <label>First name:</label>
+    <input type="text" id="register" name="firstName">
+
+    <label>Last name:</label>
+    <input type="text" id="register" name="lastName">
+
+    <label>E-mail:</label>
+    <input type="text" id="register" name="email">
+
+    <label>Password:</label>
+    <input type="text" id="register" name="password">
+
+    <label>Postcode:</label>
+    <input type="text" id="register" name="postal">
+
+    <label>Staat:</label>
+    <input type="text" id="register" name="streetName">
+
+    <label>Plaatsnaam:</label>
+    <input type="text" id="register" name="city">
+
+    <label>Land:</label>
+    <input type="text" id="register" name="country">
+
+    <label>Huisnummer:</label>
+    <input type="text" id="register" name="houseNumber">
+
+    <label>phone:</label>
+    <input type="text" id="register" name="phone">
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
