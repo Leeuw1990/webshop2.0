@@ -8,7 +8,7 @@ class Database
 {
     private $connection;
 
-    private $host = '127.0.0.1';
+    private $host = 'localhost';
     private $user = 'jleeuw';
     private $password = 'Wachtwoord123!';
     private $name = 'lampenwinkel';
