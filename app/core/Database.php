@@ -9,9 +9,9 @@ class Database
     private $connection;
 
     private $host = '127.0.0.1';
-    private $user = 'root';
-    private $password = 'root';
-    private $name = 'webshop1';
+    private $user = 'jleeuw';
+    private $password = 'Wachtwoord123!';
+    private $name = 'lampenwinkel';
 
     public function __construct() {
         $this->connection = new mysqli($this->host, $this->user, $this->password, $this->name);
@@ -22,3 +22,8 @@ class Database
         return $this->connection;
     }
 }
+
+//private $host = '127.0.0.1';
+//private $user = 'root';
+//private $password = 'root';
+//private $name = 'webshop1';
