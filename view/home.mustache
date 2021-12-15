@@ -9,18 +9,18 @@
     <a class="active" href='/'>Home</a>
     <a href='/register'>register</a>
     <a href='/shop'>shop</a>
-    {{#roles}}<a href='/admin'>admin</a>{{/roles}}
+    {{#session.admin}}<a href='/admin'>admin</a>{{/session.admin}}
     <a href='/shopping'>winkelwagen</a>
-    {{#roles}}<a href='/account'>account</a>{{/roles}}
+    {{#session.firstName}}<a href='/account'>account</a>{{/session.firstName}}
 </div>
 
 <div class="intro">
     <h1>Lampalicious</h1>
 </div>
 <div class="intro">
-    {{#data}}
-        <h1>Welkom {{data.id}}! {{data.name}}</h1>
-    {{/data}}
+    {{#session}}
+        <h1>Welkom {{session.firstName}}!</h1>
+    {{/session}}
 </div>
 
 <div class="textIntro">
@@ -31,6 +31,7 @@
     <input type="submit" value="Log uit"/>
 </form>
 
+{{#session}}
 <form method="POST" action="/login" class="login">
     <label>E-mail:</label><br>
     <input type="text" id="login" name="email"><br>
@@ -38,6 +39,7 @@
     <input type="text" id="login" name="password">
     <input type="submit" value="log in"/>
 </form>
+{{/session}}
 
 
 <div class="contact">

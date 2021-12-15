@@ -7,23 +7,22 @@ use Mustache_Loader_FilesystemLoader;
 session_start();
 abstract class Controller
 {
-
     public function render($view, $data)
     {
-        $id = $_SESSION['id'] ?? '';
-        $roles = $_SESSION['role_id'] ?? '';
-//        $firstName = $_SESSION['firstName'];
-
-
         $mustache = new Mustache_Engine([
-            'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__, 3).'/view')
+            'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__, 3) . '/view')
         ]);
 
-        $test = [];
+        $session = [];
+        $session['id'] = $_SESSION['id'] ?? "";
+        $session['firstName'] = $_SESSION['firstName'] ?? "";
+        $session['admin'] = false;
 
-        $test['name'] = 'jeffrey';
-        $test['id'] = 6;
+        if($_SESSION['role_id'] == '2') {
+            $session['admin'] = true;
+        }
 
-        echo $mustache->render($view, ['data' => $test]);
+        echo $mustache->render($view, ['data' => $data, 'session' => $session]);
+
     }
 }

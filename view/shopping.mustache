@@ -9,9 +9,9 @@
     <a href='/'>Home</a>
     <a href='/register'>register</a>
     <a href='/shop'>shop</a>
-{{#roles}}<a href='/admin'>admin</a>{{/roles}}
+{{#session.admin}}<a href='/admin'>admin</a>{{/session.admin}}
     <a class="active" href='/shopping'>Winkelwagen</a>
-{{#roles}}<a href='/account'>account</a>{{/roles}}
+{{#session.firstName}}<a href='/account'>account</a>{{/session.firstName}}
 </div>
 <h1>Winkelwagen</h1>
 
