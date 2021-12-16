@@ -18,8 +18,10 @@ abstract class Controller
         $session['firstName'] = $_SESSION['firstName'] ?? "";
         $session['admin'] = false;
 
-        if(isset($_SESSION['role_id']) == '2' ? $_SESSION['role_id'] : '') {
-            $session['admin'] = true;
+        if($_SESSION['role_id'] ?? '') {
+                if ($_SESSION['role_id'] == '2') {
+                    $session['admin'] = true;
+                }
         }
 
         echo $mustache->render($view, ['data' => $data, 'session' => $session]);
