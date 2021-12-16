@@ -33,7 +33,7 @@ class SiteController extends Controller
         $getUser = new UserModel();
         $saldo = $getUser->updateWallet($wallet, $userId);
         $this->render('account', $saldo);
-        header('Location: http://webshop2.0.xpdev/account');
+        header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/account');
     }
 
 

@@ -23,7 +23,7 @@ class ProductController extends Controller
             $order = new ProductModel();
             $orderData = $order->orderProduct($productId, $id, $amount);
             $this->render('shop', $orderData);
-            header('Location: http://webshop2.0.xpdev/shop');
+            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/shop');
         }
     }
 
@@ -61,7 +61,7 @@ class ProductController extends Controller
             $deleteProduct = new ProductModel();
             $deleteData = $deleteProduct->deleteProduct($id);
             $this->render('shop', $deleteData);
-            header('Location: http://webshop2.0.xpdev/admin');
+            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
         }
     }
 
@@ -80,7 +80,7 @@ class ProductController extends Controller
             $updateProduct = new ProductModel();
             $updateData = $updateProduct->updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId, $id);
             $this->render('shop', $updateData);
-            header('Location: http://webshop2.0.xpdev/admin');
+            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
         }
     }
 
@@ -99,7 +99,7 @@ class ProductController extends Controller
             $createProduct = new ProductModel();
             $create = $createProduct->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId);
             $this->render('shop', $create);
-            header('Location: http://webshop2.0.xpdev/admin');
+            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
         }
     }
 }

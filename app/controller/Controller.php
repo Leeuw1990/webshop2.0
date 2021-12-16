@@ -18,7 +18,7 @@ abstract class Controller
         $session['firstName'] = $_SESSION['firstName'] ?? "";
         $session['admin'] = false;
 
-        if($_SESSION['role_id'] == '2') {
+        if($_SESSION['role_id'] ?? '' == '2') {
             $session['admin'] = true;
         }
 

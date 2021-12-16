@@ -14,7 +14,7 @@ class AuthController extends Controller
             $login = new UserModel();
             $loginData = $login->login($email, $password);
             $this->render('home', $loginData);
-            header('Location: http://webshop2.0.xpdev/');
+            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
         }
     }
 
@@ -23,7 +23,7 @@ class AuthController extends Controller
         $logout = new UserModel();
         $log = $logout->logout();
         $this->render('home', $log);
-        header('Location: http://webshop2.0.xpdev/');
+        header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
     }
 
     public function registerPage()
@@ -49,7 +49,7 @@ class AuthController extends Controller
             $register = new UserModel();
             $registerPost = $register->register($firstName, $lastName, $email, $passwordHash, $postal, $streetName, $city, $country, $houseNumber, $phone);
             $this->render('register', $registerPost);
-            header('Location: http://webshop2.0.xpdev/');
+            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
         }
     }
 
