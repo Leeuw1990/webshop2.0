@@ -42,7 +42,7 @@ class ProductModel
 
     public function getProduct()
     {
-        $sql = "SELECT p.id, nameProduct, brand, specification, fitting, price, description, stock, category_name FROM products AS p INNER JOIN category ON p.id = category.`id`";
+        $sql = "SELECT p.id, nameProduct, brand, specification, fitting, price, description, stock, category_name FROM products AS p INNER JOIN category ON p.category_id = category.`id`";
         return $this->db->getConnection()->query($sql);
     }
 

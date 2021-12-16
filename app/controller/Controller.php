@@ -7,6 +7,12 @@ use Mustache_Loader_FilesystemLoader;
 session_start();
 abstract class Controller
 {
+    function baseUrl($url): string
+    {
+        $result = parse_url($url);
+        return $result['scheme']."://".$result['host'];
+    }
+
     public function render($view, $data)
     {
         $mustache = new Mustache_Engine([

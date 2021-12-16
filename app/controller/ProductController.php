@@ -23,7 +23,7 @@ class ProductController extends Controller
             $order = new ProductModel();
             $orderData = $order->orderProduct($productId, $id, $amount);
             $this->render('shop', $orderData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/shop');
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/shop");
         }
     }
 
@@ -61,7 +61,7 @@ class ProductController extends Controller
             $deleteProduct = new ProductModel();
             $deleteData = $deleteProduct->deleteProduct($id);
             $this->render('shop', $deleteData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/admin");
         }
     }
 
@@ -80,7 +80,7 @@ class ProductController extends Controller
             $updateProduct = new ProductModel();
             $updateData = $updateProduct->updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId, $id);
             $this->render('shop', $updateData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/admin");
         }
     }
 
@@ -99,7 +99,7 @@ class ProductController extends Controller
             $createProduct = new ProductModel();
             $create = $createProduct->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId);
             $this->render('shop', $create);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/admin");
         }
     }
 }

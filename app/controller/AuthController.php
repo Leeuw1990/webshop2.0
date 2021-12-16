@@ -5,6 +5,7 @@ use app\model\UserModel;
 
 class AuthController extends Controller
 {
+
     public function login()
     {
         $email = $_POST['email'];
@@ -14,7 +15,7 @@ class AuthController extends Controller
             $login = new UserModel();
             $loginData = $login->login($email, $password);
             $this->render('home', $loginData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/");
         }
     }
 
@@ -23,7 +24,7 @@ class AuthController extends Controller
         $logout = new UserModel();
         $log = $logout->logout();
         $this->render('home', $log);
-        header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
+        header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/");
     }
 
     public function registerPage()
@@ -49,7 +50,7 @@ class AuthController extends Controller
             $register = new UserModel();
             $registerPost = $register->register($firstName, $lastName, $email, $passwordHash, $postal, $streetName, $city, $country, $houseNumber, $phone);
             $this->render('register', $registerPost);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/");
         }
     }
 
