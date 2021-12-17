@@ -7,15 +7,6 @@ use app\core\Database;
 class ProductModel
 {
     private $db;
-    private $products = 'products';
-
-    private $nameProduct = '$nameProduct';
-    private $brand = '$brand';
-    private $specification = '$specification';
-    private $fitting = 'fitting';
-    private $price = '$price';
-    private $description = '$description';
-    private $stock = '$stock';
 
     public function __construct()
     {
@@ -28,9 +19,7 @@ class ProductModel
                 INNER JOIN products ON orders.product_id = products.id
                 WHERE orders.user_id = $id";
         return $this->db->getConnection()->query($sql);
-
     }
-
 
     public function getOrder($id)
     {

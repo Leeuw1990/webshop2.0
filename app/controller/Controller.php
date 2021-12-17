@@ -29,8 +29,6 @@ abstract class Controller
                     $session['admin'] = true;
                 }
         }
-
         echo $mustache->render($view, ['data' => $data, 'session' => $session]);
-
     }
 }
