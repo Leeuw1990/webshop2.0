@@ -1,16 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/styles/update.css" rel="stylesheet"/>
+    <title>Register</title>
+</head>
+<body class="updateproduct">
 
+<div class="topnav">
+    <a href='/admin'>admin</a>
+</div>
 
 
 <h1>Update form</h1>
-<form method="POST" class="updateproduct" action="/updateproduct">
+<form method="POST" class="updateproductForm" action="/updateproduct">
 {{#data}}
+        <label>Product:</label>
         <input class="add" type="text" value="{{nameProduct}}" name="nameProduct" required id="test">
+
+        <label>Merk:</label>
         <input class="add" type="text" value="{{brand}}" name="brand" required id="test">
+
+        <label>Specificatie:</label>
         <input class="add" type="text" value="{{specification}}" name="specification" required id="test">
+
+        <label>Fitting:</label>
         <input class="add" type="text" value="{{fitting}}" name="fitting" required id="test">
+
+        <label>Prijs:</label>
         <input class="add" type="text" value="{{price}}" name="price" required id="test">
+
+        <label>Omschrijving:</label>
         <input class="add" type="text" value="{{description}}" name="description" required id="test">
+
+        <label>Voorraad:</label>
         <input class="add" type="text" value="{{stock}}" name="stock" required id="test">
+
         <input class="add" type="hidden" value="{{id}}" name="id" required id="test">
     <label for="category_id">
         <select name="category_id">
@@ -22,7 +46,8 @@
             <option value="6">Tafellampen</option>
         </select>
     </label>
-        <button class="addButton" type="submit" value="Submit">Submit</button>
+        <button class="btn" type="submit" value="Submit">Submit</button>
 {{/data}}
 </form>
-
+</body>
+</html>

@@ -2,9 +2,6 @@
 
 namespace app\core;
 
-use app\controller\Controller;
-use app\core\Dotenv;
-
 use mysqli;
 
 class Database
@@ -27,12 +24,3 @@ class Database
         return $this->connection;
     }
 }
-
-//private $host = '127.0.0.1';
-//private $user = 'root';
-//private $password = 'root';
-//private $name = 'webshop1';
-//private $host = '127.0.0.1';
-//private $user = 'root';
-//private $password = 'root';
-//private $name = 'webshop1';

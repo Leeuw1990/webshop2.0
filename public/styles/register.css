@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 .register {
-    margin: 50px;
+    font-family: 'Rubik', sans-serif;
     border: solid black 3px;
-    height: 500px
 }
 
 .topnav {
@@ -39,4 +39,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.registerB {
+    display: flex;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.btn {
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    margin: 25px;
 }

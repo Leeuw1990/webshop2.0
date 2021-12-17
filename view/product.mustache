@@ -10,13 +10,13 @@
 
 <form method="POST" class="addTo" action="/addtocart">
     {{#data}}
-        <td><strong>Product: </strong>{{nameProduct}}</td>
-        <td><strong>Merk: </strong>{{brand}}</td>
-        <td><strong>Prijs: </strong>{{price}} euro</td>
-        <td><strong>Specificatie: </strong>{{specification}}</td>
-        <td><strong>Fitting: </strong>{{fitting}}</td>
-        <td><strong>Infomatie: </strong>{{description}}</td>
-        <td><strong>{{category_name}}</strong></td>
+        <td class="productTabel"><strong>Product: </strong>{{nameProduct}}</td>
+        <td class="productTabel"><strong>Merk: </strong>{{brand}}</td>
+        <td class="productTabel"><strong>Prijs: </strong>{{price}} euro</td>
+        <td class="productTabel"><strong>Specificatie: </strong>{{specification}}</td>
+        <td class="productTabel"><strong>Fitting: </strong>{{fitting}}</td>
+        <td class="productTabel"><strong>Infomatie: </strong>{{description}}</td>
+        <td class="productTabel"><strong>{{category_name}}</strong></td>
         <label for="amount" name="amount">
             <input value="1" type="text" name="amount">
         </label>

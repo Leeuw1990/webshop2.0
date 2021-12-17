@@ -13,6 +13,7 @@
     <a class="active" href='/shopping'>Winkelwagen</a>
 {{#session.firstName}}<a href='/account'>account</a>{{/session.firstName}}
 </div>
+<div class="formCart">
 <h1>Winkelwagen</h1>
 
 <table class="productTab">
@@ -29,8 +30,10 @@
 </table>
 
 <form method="GET" action="">
-    <input type="button" value="Afrekenen">
+    <input class="btn" type="button" value="Afrekenen">
 </form>
+
+</div>
 
 </body>
 </html>

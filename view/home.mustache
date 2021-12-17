@@ -13,9 +13,11 @@
     <a href='/shopping'>winkelwagen</a>
     {{#session.firstName}}<a href='/account'>account</a>{{/session.firstName}}
 </div>
-
+<form action="/logout" method="POST" class="logout">
+    <input class="btn" type="submit" value="Log uit"/>
+</form>
 <div class="intro">
-    <h1>Lampalicious</h1>
+    <h1>Lampalicious!</h1>
 </div>
 <div class="intro">
     {{#session}}
@@ -27,17 +29,13 @@
     <p>Lampalicious! voor ieder wat wils, Een gezellig lampje voor in de donkere dagen voor zowel binnen en buiten.</p>
 </div>
 
-<form action="/logout" method="POST" class="logout">
-    <input type="submit" value="Log uit"/>
-</form>
-
 {{#session}}
-<form method="POST" action="/login" class="login">
-    <label>E-mail:</label><br>
-    <input type="text" id="login" name="email"><br>
-    <label>Password:</label><br>
-    <input type="text" id="login" name="password">
-    <input type="submit" value="log in"/>
+<form method="POST" action="/login" class="loginForm">
+
+    <input placeholder="E-mail" type="text" class="login" name="email"><br>
+
+    <input placeholder="Password" type="text" class="login" name="password">
+    <input class="btn" type="submit" value="log in"/>
 </form>
 {{/session}}
 

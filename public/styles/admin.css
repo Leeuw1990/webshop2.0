@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 .admin {
-    margin: 50px;
+    font-family: 'Rubik', sans-serif;
     border: solid black 3px;
-    height: 500px
 }
 
 .topnav {
@@ -43,6 +43,7 @@
 }
 
 .addButton {
+    background-color: red;
     border-radius: 5px;
     height: 30px;
     width: 100px;

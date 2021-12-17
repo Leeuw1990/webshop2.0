@@ -1,7 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-.shop {
+.updateproduct {
     font-family: 'Rubik', sans-serif;
     border: solid black 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.updateproductForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.add {
+    border-radius: 15px;
+    margin-bottom: 12px;
+}
+
+.category_id {
+    border-radius: 15px;
+    margin-bottom: 12px;
+}
+
+.btn {
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    margin: 15px
 }
 
 .topnav {
@@ -33,16 +60,4 @@
 .topnav a.active {
     background-color: red;
     color: white;
-}
-
-.productTab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid black 1px;
-    margin: 50px;
-}
-
-.productTabel {
-    border: solid black 1px;
 }

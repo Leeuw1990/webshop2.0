@@ -14,11 +14,12 @@
     <a class="active" href='/account'>account</a>
 </div>
 
+<div class="profielForm">
 <h1>Profiel</h1>
 <table class="userDetails">
     {{#data}}
         <tr>
-            <td><strong>Voornaam: </strong>{{firstname}}</td>
+            <td><strong>Voornaam: </strong>{{firstName}}</td>
             <td><strong>Achternaam: </strong>{{lastName}}</td>
             <td><strong>E-mail: </strong>{{email}}</td>
             <td><strong>Postcode: </strong>{{postal}}</td>
@@ -31,14 +32,15 @@
     {{/data}}
 </table>
 
-<form method="POST" action="/saldo">
+<form class="portForm" method="POST" action="/saldo">
 {{#data}}
-    <h1>Saldo: {{wallet}}</h1>
+    <h1>Saldo: {{wallet}} euro</h1>
     <label for="wallet">Portemonnee aanvullen: </label>
-    <input name="wallet" type="text" value="0.00">
-    <input type="submit" value="Stort geld" >
+    <input class="wallet" name="wallet" type="text" value="0.00">
+    <input class="btn" type="submit" value="Stort geld" >
 {{/data}}
 </form>
+</div>
 
 
 </body>
