@@ -5,12 +5,17 @@ use app\model\ProductModel;
 
 class ProductController extends Controller
 {
+    private $products;
+
+    function __construct()
+    {
+        $this->products = new ProductModel();
+    }
+
     public function getShoppingCart()
     {
         $id = $_SESSION['id'] ?? "";
-        $cart = new ProductModel();
-        $cartData = $cart->getShoppingCart($id);
-        $this->render('shopping', $cartData);
+        $this->render('shopping', $this->products->getShoppingCart($id));
     }
 
     public function order()
@@ -20,27 +25,21 @@ class ProductController extends Controller
         $amount = $_POST['amount'] ?? "";
 
         if ($productId && $id && $amount) {
-            $order = new ProductModel();
-            $order->orderProduct($productId, $id, $amount);
-//            $this->render('shop', $orderData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/shop');
+            $this->products->orderProduct($productId, $id, $amount);
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/shop");
         }
     }
 
     public function shop()
     {
-        $getProduct = new ProductModel();
-        $productData = $getProduct->getProduct();
-        $this->render('shop', $productData);
+        $this->render('shop', $this->products->getProduct());
     }
 
     public function productById()
     {
         $id = $_GET['id'] ?? "";
         if ($id) {
-            $getProductById = new ProductModel();
-            $dataById = $getProductById->getProductById($id);
-            $this->render('product', $dataById);
+            $this->render('product', $this->products->getProductById($id));
         }
     }
 
@@ -48,9 +47,7 @@ class ProductController extends Controller
     {
         $id = $_GET['id'] ?? "";
         if($id) {
-            $getProductById = new ProductModel();
-            $dataById = $getProductById->getProductById($id);
-            $this->render('update', $dataById);
+            $this->render('update', $this->products->getProductById($id));
         }
     }
 
@@ -58,10 +55,8 @@ class ProductController extends Controller
     {
         $id = $_GET['id'] ?? "";
         if($id) {
-            $deleteProduct = new ProductModel();
-            $deleteData = $deleteProduct->deleteProduct($id);
-            $this->render('shop', $deleteData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
+            $this->products->deleteProduct($id);
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/admin");
         }
     }
 
@@ -77,10 +72,8 @@ class ProductController extends Controller
         $categoryId = $_POST['category_id'] ?? "";
         $id = $_POST['id'] ?? "";
         if($nameProduct && $brand && $specification && $fitting && $price && $description && $stock && $categoryId && $id) {
-            $updateProduct = new ProductModel();
-            $updateData = $updateProduct->updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId, $id);
-            $this->render('shop', $updateData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
+            $this->products->updateProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId, $id);
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/admin");
         }
     }
 
@@ -96,10 +89,8 @@ class ProductController extends Controller
         $categoryId = $_POST['category_id'] ?? "";
 
         if($nameProduct || $brand || $specification || $fitting || $price || $description || $stock || $categoryId) {
-            $createProduct = new ProductModel();
-            $create = $createProduct->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId);
-            $this->render('shop', $create);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/admin');
+            $this->products->createProduct($nameProduct, $brand, $specification, $fitting, $price, $description, $stock, $categoryId);
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/admin");
         }
     }
 }

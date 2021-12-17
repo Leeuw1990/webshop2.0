@@ -5,25 +5,28 @@ use app\model\UserModel;
 
 class AuthController extends Controller
 {
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new UserModel();
+    }
+
     public function login()
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
         if($email && $password) {
-            $login = new UserModel();
-            $loginData = $login->login($email, $password);
-            $this->render('home', $loginData);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
+            $this->users->login($email, $password);
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/");
         }
     }
 
     public function logout()
     {
-        $logout = new UserModel();
-        $log = $logout->logout();
-        $this->render('home', $log);
-        header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
+        $this->users->logout();
+        header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/");
     }
 
     public function registerPage()
@@ -46,10 +49,8 @@ class AuthController extends Controller
         $phone = $_POST['phone'];
 
         if($firstName && $lastName &&  $email &&  $passwordHash &&  $postal && $streetName &&  $city &&  $country &&  $houseNumber &&  $phone) {
-            $register = new UserModel();
-            $registerPost = $register->register($firstName, $lastName, $email, $passwordHash, $postal, $streetName, $city, $country, $houseNumber, $phone);
-            $this->render('register', $registerPost);
-            header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/');
+            $this->users->register($firstName, $lastName, $email, $passwordHash, $postal, $streetName, $city, $country, $houseNumber, $phone);
+            header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/");
         }
     }
 

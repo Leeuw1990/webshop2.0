@@ -2,16 +2,17 @@
 
 namespace app\controller;
 
-use app\controller\Controller;
-use app\core\Request;
 use app\model\UserModel;
-
-// $this: Het is een referentie naar het huidige object.
-// WAT IS EEN CONTROLLER?:
-//
 
 class SiteController extends Controller
 {
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new UserModel();
+    }
+
     public function home()
     {
         $name = $_SESSION['firstName'] ?? "";
@@ -21,19 +22,15 @@ class SiteController extends Controller
     public function account()
     {
         $userId = $_SESSION['id'] ?? "";
-        $getUser = new UserModel();
-        $user = $getUser->getUser($userId);
-        $this->render('account', $user);
+        $this->render('account', $this->users->getUser($userId));
     }
 
     public function wallet()
     {
         $wallet = $_POST['wallet'];
         $userId = $_SESSION['id'] ?? "";
-        $getUser = new UserModel();
-        $saldo = $getUser->updateWallet($wallet, $userId);
-        $this->render('account', $saldo);
-        header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/account');
+        $this->users->updateWallet($wallet, $userId);
+        header("Location: ".$this->baseUrl($_SERVER['HTTP_REFERER'])."/account");
     }
 
 

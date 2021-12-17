@@ -11,11 +11,6 @@ class Database
 {
     private $connection;
 
-//    private $host = 'localhost';
-//    private $user = 'jleeuw';
-//    private $password = 'Wachtwoord123!';
-//    private $name = 'lampenwinkel';
-
     public function __construct() {
         $dbDetails = new Dotenv(dirname(__dir__, 2). "/.env");
         $dbDetails->load();
@@ -33,6 +28,10 @@ class Database
     }
 }
 
+//private $host = '127.0.0.1';
+//private $user = 'root';
+//private $password = 'root';
+//private $name = 'webshop1';
 //private $host = '127.0.0.1';
 //private $user = 'root';
 //private $password = 'root';
