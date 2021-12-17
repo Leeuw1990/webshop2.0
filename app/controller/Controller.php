@@ -7,6 +7,12 @@ use Mustache_Loader_FilesystemLoader;
 session_start();
 abstract class Controller
 {
+    function baseUrl($url): string
+    {
+        $result = parse_url($url);
+        return $result['scheme']."://".$result['host'];
+    }
+
     public function render($view, $data)
     {
         $mustache = new Mustache_Engine([
@@ -18,8 +24,10 @@ abstract class Controller
         $session['firstName'] = $_SESSION['firstName'] ?? "";
         $session['admin'] = false;
 
-        if($_SESSION['role_id'] ?? '' == '2') {
-            $session['admin'] = true;
+        if($_SESSION['role_id'] ?? '') {
+                if ($_SESSION['role_id'] == '2') {
+                    $session['admin'] = true;
+                }
         }
 
         echo $mustache->render($view, ['data' => $data, 'session' => $session]);

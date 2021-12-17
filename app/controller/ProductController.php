@@ -21,8 +21,8 @@ class ProductController extends Controller
 
         if ($productId && $id && $amount) {
             $order = new ProductModel();
-            $orderData = $order->orderProduct($productId, $id, $amount);
-            $this->render('shop', $orderData);
+            $order->orderProduct($productId, $id, $amount);
+//            $this->render('shop', $orderData);
             header('Location: https://lampenwinkel.jeffrey.experiustrainee.nl/shop');
         }
     }

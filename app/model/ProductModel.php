@@ -28,9 +28,7 @@ class ProductModel
                 INNER JOIN products ON orders.product_id = products.id
                 WHERE orders.user_id = $id";
         return $this->db->getConnection()->query($sql);
-
     }
-
 
     public function getOrder($id)
     {
